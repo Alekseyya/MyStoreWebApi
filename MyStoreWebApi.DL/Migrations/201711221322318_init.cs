@@ -3,7 +3,7 @@ namespace MyStoreWebApi.DL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init1 : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -17,24 +17,6 @@ namespace MyStoreWebApi.DL.Migrations
             //    .PrimaryKey(t => t.Id);
             
             //CreateTable(
-            //    "dbo.Orders",
-            //    c => new
-            //        {
-            //            Id = c.Int(nullable: false, identity: true),
-            //            UserId = c.Int(nullable: false),
-            //            ProductId = c.Int(nullable: false),
-            //            Quantity = c.Int(nullable: false),
-            //            OrderPrice = c.Decimal(nullable: false, precision: 15, scale: 2),
-            //            OrderDate = c.DateTime(nullable: false),
-            //            User_Id = c.Guid(nullable: false),
-            //        })
-            //    .PrimaryKey(t => t.Id)
-            //    .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
-            //    .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: true)
-            //    .Index(t => t.ProductId)
-            //    .Index(t => t.User_Id);
-            
-            //CreateTable(
             //    "dbo.Products",
             //    c => new
             //        {
@@ -42,25 +24,33 @@ namespace MyStoreWebApi.DL.Migrations
             //            Name = c.String(nullable: false, maxLength: 250),
             //            Descriptions = c.String(maxLength: 400),
             //            Price = c.Decimal(nullable: false, precision: 15, scale: 2),
-            //            CategoryId = c.Int(nullable: false),
+            //            CategoryId = c.Int(),
             //            IsDeleted = c.Boolean(nullable: false),
             //            Count = c.Int(nullable: false),
-            //            PhotoId = c.Int(nullable: false),
+            //            PhotoId = c.Int(),
+            //            OrderId = c.Int(),
             //        })
             //    .PrimaryKey(t => t.Id)
-            //    .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: true)
-            //    .ForeignKey("dbo.Photos", t => t.PhotoId, cascadeDelete: true)
+            //    .ForeignKey("dbo.Orders", t => t.OrderId)
+            //    .ForeignKey("dbo.Photos", t => t.PhotoId)
+            //    .ForeignKey("dbo.Categories", t => t.CategoryId)
             //    .Index(t => t.CategoryId)
-            //    .Index(t => t.PhotoId);
+            //    .Index(t => t.PhotoId)
+            //    .Index(t => t.OrderId);
             
             //CreateTable(
-            //    "dbo.Photos",
+            //    "dbo.Orders",
             //    c => new
             //        {
             //            Id = c.Int(nullable: false, identity: true),
-            //            Image = c.Binary(maxLength: 8000),
+            //            Quantity = c.Int(nullable: false),
+            //            OrderPrice = c.Decimal(nullable: false, precision: 15, scale: 2),
+            //            OrderDate = c.DateTime(nullable: false),
+            //            User_Id = c.Guid(nullable: false),
             //        })
-            //    .PrimaryKey(t => t.Id);
+            //    .PrimaryKey(t => t.Id)
+            //    .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: true)
+            //    .Index(t => t.User_Id);
             
             //CreateTable(
             //    "dbo.Users",
@@ -81,22 +71,31 @@ namespace MyStoreWebApi.DL.Migrations
             //        })
             //    .PrimaryKey(t => t.Id);
             
+            //CreateTable(
+            //    "dbo.Photos",
+            //    c => new
+            //        {
+            //            Id = c.Int(nullable: false, identity: true),
+            //            Image = c.Binary(maxLength: 8000),
+            //        })
+            //    .PrimaryKey(t => t.Id);
+            
         }
         
         public override void Down()
         {
-            //DropForeignKey("dbo.Orders", "User_Id", "dbo.Users");
-            //DropForeignKey("dbo.Orders", "ProductId", "dbo.Products");
-            //DropForeignKey("dbo.Products", "PhotoId", "dbo.Photos");
             //DropForeignKey("dbo.Products", "CategoryId", "dbo.Categories");
+            //DropForeignKey("dbo.Products", "PhotoId", "dbo.Photos");
+            //DropForeignKey("dbo.Products", "OrderId", "dbo.Orders");
+            //DropForeignKey("dbo.Orders", "User_Id", "dbo.Users");
+            //DropIndex("dbo.Orders", new[] { "User_Id" });
+            //DropIndex("dbo.Products", new[] { "OrderId" });
             //DropIndex("dbo.Products", new[] { "PhotoId" });
             //DropIndex("dbo.Products", new[] { "CategoryId" });
-            //DropIndex("dbo.Orders", new[] { "User_Id" });
-            //DropIndex("dbo.Orders", new[] { "ProductId" });
-            //DropTable("dbo.Users");
             //DropTable("dbo.Photos");
-            //DropTable("dbo.Products");
+            //DropTable("dbo.Users");
             //DropTable("dbo.Orders");
+            //DropTable("dbo.Products");
             //DropTable("dbo.Categories");
         }
     }

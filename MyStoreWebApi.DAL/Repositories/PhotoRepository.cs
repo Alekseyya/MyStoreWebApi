@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using MyStoreWebApi.DAL.Repositories.Base;
 using MyStoreWebApi.DL.Context;
@@ -16,27 +17,52 @@ namespace MyStoreWebApi.DAL.Repositories
 
         public void Create(Photo item)
         {
-            throw new NotImplementedException();
+            _context.Photos.Add(item);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var photo = _context.Photos.FirstOrDefault(o => o.Id == id);
+            if (photo != null)
+            {
+                _context.Photos.Remove(photo);
+                _context.SaveChanges();
+            }
         }
 
         public IQueryable<Photo> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Photos.AsQueryable();
         }
 
         public Photo GetItemById(int id)
         {
-            throw new NotImplementedException();
+            var photo = _context.Photos.FirstOrDefault(x => x.Id == id);
+            if (photo != null)
+                return photo;
+            else
+            {
+                return null;
+            }
         }
 
         public void Update(Photo item)
         {
-            throw new NotImplementedException();
+            var photo = _context.Photos.FirstOrDefault(o => o.Id == item.Id);
+            bool isModified = false;
+            
+            if (photo.Image != photo.Image)
+            {
+                photo.Image = photo.Image;
+                isModified = true;
+            }
+
+            if (isModified)
+            {
+                _context.Entry(photo).State = EntityState.Modified;
+                _context.SaveChanges();
+            }
         }
     }
 }

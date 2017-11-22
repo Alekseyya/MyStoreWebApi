@@ -18,7 +18,7 @@ c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DL\bin\Debug\EntityFramework.SqlSer
 c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DL\bin\Debug\EntityFramework.xml
 c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DL\bin\Debug\EntityFramework.SqlServer.xml
 c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DL\obj\Debug\MyStoreWebApi.DL.csprojResolveAssemblyReference.cache
-c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DL\obj\Debug\MyStoreWebApi.DL.Migrations.init1.resources
-c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DL\obj\Debug\MyStoreWebApi.DL.csproj.GenerateResource.Cache
 c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DL\obj\Debug\MyStoreWebApi.DL.dll
 c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DL\obj\Debug\MyStoreWebApi.DL.pdb
+c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DL\obj\Debug\MyStoreWebApi.DL.Migrations.init.resources
+c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DL\obj\Debug\MyStoreWebApi.DL.csproj.GenerateResource.Cache

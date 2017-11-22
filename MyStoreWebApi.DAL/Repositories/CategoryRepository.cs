@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using MyStoreWebApi.DAL.Repositories.Base;
 using MyStoreWebApi.DL.Context;
@@ -16,27 +17,53 @@ namespace MyStoreWebApi.DAL.Repositories
 
         public void Create(Category item)
         {
-            throw new NotImplementedException();
+            _context.Categories.Add(item);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+
+            Category category = _context.Categories.FirstOrDefault(o => o.Id == id);
+            if (category != null)
+            {
+                _context.Categories.Remove(category);
+                _context.SaveChanges();
+            }
         }
 
         public IQueryable<Category> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Categories.AsQueryable();
         }
 
         public Category GetItemById(int id)
         {
-            throw new NotImplementedException();
+            var category = _context.Categories.FirstOrDefault(x => x.Id == id);
+            if (category != null)
+                return category;
+            else
+            {
+                return null;
+            }
         }
 
         public void Update(Category item)
         {
-            throw new NotImplementedException();
+            var category = _context.Categories.FirstOrDefault(o => o.Id == item.Id);
+            bool isModified = false;
+
+            if (category.Name != item.Name)
+            {
+                category.Name = item.Name;
+                isModified = true;
+            }
+            
+            if (isModified)
+            {
+                _context.Entry(category).State = EntityState.Modified;
+                _context.SaveChanges();
+            }
         }
     }
 }

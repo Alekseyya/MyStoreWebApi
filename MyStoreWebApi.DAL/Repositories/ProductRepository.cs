@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using MyStoreWebApi.DAL.Repositories.Base;
 using MyStoreWebApi.DL.Context;
@@ -16,27 +17,98 @@ namespace MyStoreWebApi.DAL.Repositories
 
         public void Create(Product item)
         {
-            throw new NotImplementedException();
+            _context.Products.Add(item);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var product = _context.Products.FirstOrDefault(o => o.Id == id);
+            if (product != null)
+            {
+                _context.Products.Remove(product);
+                _context.SaveChanges();
+            }
         }
 
         public IQueryable<Product> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Products.Include("Order").Include("Photo")
+                                    .Include("Category").AsQueryable();
         }
 
         public Product GetItemById(int id)
         {
-            throw new NotImplementedException();
+            var product = _context.Products
+                        .Include("Order")
+                        .Include("Photo")
+                        .Include("Category").FirstOrDefault(x => x.Id == id);
+            if (product != null)
+                return product;
+            else
+            {
+                return null;
+            }
         }
 
         public void Update(Product item)
         {
-            throw new NotImplementedException();
+            var product = _context.Products.FirstOrDefault(o => o.Id == item.Id);
+            bool isModified = false;
+
+            if (product.Name != item.Name)
+            {
+                product.Name = item.Name;
+                isModified = true;
+            }
+            
+            if (product.Descriptions != item.Descriptions)
+            {
+                product.Descriptions = item.Descriptions;
+                isModified = true;
+            }
+
+            if (product.Price != item.Price)
+            {
+                product.Price = item.Price;
+                isModified = true;
+            }
+
+            if (product.CategoryId != item.CategoryId)
+            {
+                product.CategoryId = item.CategoryId;
+                isModified = true;
+            }
+
+            if (product.IsDeleted != item.IsDeleted)
+            {
+                product.IsDeleted = item.IsDeleted;
+                isModified = true;
+            }
+
+
+            if (product.Count != item.Count)
+            {
+                product.Count = item.Count;
+                isModified = true;
+            }
+
+            if (product.PhotoId != item.PhotoId)
+            {
+                product.PhotoId = item.PhotoId;
+                isModified = true;
+            }
+            if (product.OrderId != item.OrderId)
+            {
+                product.OrderId = item.OrderId;
+                isModified = true;
+            }
+
+            if (isModified)
+            {
+                _context.Entry(product).State = EntityState.Modified;
+                _context.SaveChanges();
+            }
         }
     }
 }

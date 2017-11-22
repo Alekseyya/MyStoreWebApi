@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
@@ -7,14 +8,17 @@ namespace MyStoreWebApi.DL.Entities
     public class Order
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public int ProductId { get; set; }
         public int Quantity { get; set; }
         public decimal OrderPrice { get; set; }
         public DateTime OrderDate { get; set; }
 
-        public Product Product { get; set; }
+        public ICollection<Product> Products { get; set; }
         public User User { get; set; }
+
+        public Order()
+        {
+            Products = new List<Product>();
+        }
     }
 
     public class OrderConfiguration : EntityTypeConfiguration<Order>
@@ -37,7 +41,9 @@ namespace MyStoreWebApi.DL.Entities
             Property(x => x.OrderDate)
                 .IsRequired();
 
-            HasRequired(x => x.Product);
+            HasMany(x => x.Products);
+                
+
             HasRequired(x => x.User);//[ForeignKey]
         }
     }

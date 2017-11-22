@@ -9,12 +9,14 @@ namespace MyStoreWebApi.DL.Entities
         public string Name { get; set; }
         public string Descriptions { get; set; }
         public decimal Price { get; set; }
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         public bool IsDeleted { get; set; }
         public int Count { get; set; }
         public int? PhotoId { get; set; }
+        public int? OrderId { get; set; }
 
 
+        public Order Order { get; set; }
         public Photo Photo { get; set; }
         public Category Category { get; set; }
     }
@@ -42,8 +44,11 @@ namespace MyStoreWebApi.DL.Entities
             Property(x => x.Count)
                 .IsRequired();
 
-            HasRequired(x => x.Photo);
-            HasRequired(x => x.Category);//[ForeignKey]
+
+            HasOptional(x=>x.Photo);
+            HasOptional(x => x.Order);
+
+            HasOptional(x => x.Category); //[ForeignKey]
         }
     }
 }

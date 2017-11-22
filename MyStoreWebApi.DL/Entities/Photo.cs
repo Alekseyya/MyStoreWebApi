@@ -21,6 +21,7 @@ namespace MyStoreWebApi.DL.Entities
 
             Property(x => x.Image)
                 .HasColumnType("varbinary");
+            
         }
     }
 }
