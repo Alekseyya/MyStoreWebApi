@@ -1,0 +1,7 @@
+c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DI\bin\Debug\MyStoreWebApi.DI.dll
+c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DI\bin\Debug\MyStoreWebApi.DI.pdb
+c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DI\bin\Debug\Ninject.dll
+c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DI\bin\Debug\Ninject.xml
+c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DI\obj\Debug\MyStoreWebApi.DI.csprojResolveAssemblyReference.cache
+c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DI\obj\Debug\MyStoreWebApi.DI.dll
+c:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.DI\obj\Debug\MyStoreWebApi.DI.pdb
