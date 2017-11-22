@@ -1,0 +1,13 @@
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.BL\bin\Debug\MyStoreWebApi.BL.dll
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.BL\bin\Debug\MyStoreWebApi.BL.pdb
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.BL\bin\Debug\AutoMapper.dll
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.BL\bin\Debug\MyStoreWebApi.DAL.dll
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.BL\bin\Debug\MyStoreWebApi.DL.dll
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.BL\bin\Debug\EntityFramework.dll
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.BL\bin\Debug\MyStoreWebApi.DAL.pdb
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.BL\bin\Debug\MyStoreWebApi.DL.pdb
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.BL\bin\Debug\AutoMapper.xml
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.BL\bin\Debug\EntityFramework.xml
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.BL\obj\Debug\MyStoreWebApi.BL.csprojResolveAssemblyReference.cache
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.BL\obj\Debug\MyStoreWebApi.BL.dll
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.BL\obj\Debug\MyStoreWebApi.BL.pdb
