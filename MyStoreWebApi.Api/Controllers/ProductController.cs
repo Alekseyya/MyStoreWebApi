@@ -21,11 +21,7 @@ namespace MyWebAPI.Api.Controllers
         {
             _service = service;
         }
-
-        //public ProductController()
-        //{
-        //    _service = new ProductService(new UnitOfWork());
-        //}
+        
         // GET api/values
         public IEnumerable<Product> GetProducts()
         {
