@@ -5,37 +5,49 @@
 <html>
 <head>
     <title></title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
 </head>
 <body>
-<h2>Чат-комната</h2>
- 
-<div class="main">
-    <div id="loginBlock">
-        Введите логин:<br />
-        <input id="txtUserName" type="text" />
-        <input id="btnLogin" type="button" value="Войти" />
-    </div>
-    <div id="chatBody">
-        <div id="header"></div>
-        <div id="inputForm">
-            <input type="text" id="message" />
-            <input type="button" id="sendmessage" value="Отправить" />
-        </div>
-        <div id="chatroom"></div>
- 
-        <div id="chatusers">
-            <p><b>Все пользователи</b></p>
-        </div>
-    </div>
-    <input id="hdId" type="hidden" />
-    <input id="username" type="hidden" />
+<div>
+    <label>login</label><br />
+    <input type="text" id="login" /> <br /><br />
+    <label>Password</label><br/>
+    <input type="password" id="password"/><br/><br/>
+    <label>confirm password</label><br/>
+    <input type="password" id="confirmpassword"/><br/><br/>
+    <input type="submit" id="submit" value="Регистрация"/>
 </div>
  
-<script src="~/Scripts/jquery-1.12.4.min.js"></script>
-<!--Ссылка на библиотеку SignalR -->
-<script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
-<!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
-<script src="~/signalr/hubs"></script>
-<script src="~/Scripts/util.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#submit').click(function (e) {
+            e.preventDefault();
+            var user = {
+                UserName: $('#login').val(),
+                Password: $('#password').val(),
+                ConfirmPassword: $('#confirmpassword').val()
+            };
+
+            console.log(user);
+
+            $.ajax({
+                url: '/api/account/adduser',
+                type: 'Post',
+                data: user
+            }).success(function (data) {
+                alert("Регистрация пройдена" + data);
+            }).fail(function (data) {
+                alert("В процесе регистрации возникла ошибка" + data);
+            });
+
+            //$.ajax({
+            //    url: 'api/account/register',
+            //    type: 'Post',
+            //    data: user
+            //});
+        });
+    })
+</script>
+
 </body>
 </html>

@@ -103,3 +103,17 @@ C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\ru\System.Web.WebPages.Razo
 C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\obj\Debug\MyStoreWebApi.Api.csprojResolveAssemblyReference.cache
 C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\obj\Debug\MyWebAPI.Api.dll
 C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\obj\Debug\MyWebAPI.Api.pdb
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\EntityFramework.dll
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\EntityFramework.SqlServer.dll
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\EntityFramework.xml
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\EntityFramework.SqlServer.xml
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Work\Andersen\MyStoreWebApi\MyStoreWebApi.Api\bin\Microsoft.Owin.Security.OAuth.xml

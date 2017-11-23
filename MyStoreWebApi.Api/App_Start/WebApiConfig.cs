@@ -23,7 +23,7 @@ namespace MyStoreWebApi.Api
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "ProductRoute",
+                name: "MyRoute",
                 routeTemplate: "api/{controller}/{action}"
             );
 
