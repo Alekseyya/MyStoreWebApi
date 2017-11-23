@@ -8,30 +8,30 @@ namespace MyStoreWebApi.BL.MapperConfig
     {
         public static void Configure()
         {
-            Mapper.Initialize(cfg =>
-            {
-                cfg.AddProfile(new CategoryProfile());
-            });
+            //Mapper.Initialize(cfg =>
+            //{
+            //    cfg.AddProfile(new CategoryProfile());
+            //});
 
-            Mapper.Initialize(cfg =>
-            {
-                cfg.AddProfile(new OrderProfile());
-            });
+            //Mapper.Initialize(cfg =>
+            //{
+            //    cfg.AddProfile(new OrderProfile());
+            //});
 
-            Mapper.Initialize(cfg =>
-            {
-                cfg.AddProfile(new PhotoProfile());
-            });
+            //Mapper.Initialize(cfg =>
+            //{
+            //    cfg.AddProfile(new PhotoProfile());
+            //});
 
-            Mapper.Initialize(cfg =>
-            {
-                cfg.AddProfile(new ProductProfile());
-            });
+            //Mapper.Initialize(cfg =>
+            //{
+            //    cfg.AddProfile(new ProductProfile());
+            //});
 
-            Mapper.Initialize(cfg =>
-            {
-                cfg.AddProfile(new UserProfile());
-            });
+            //Mapper.Initialize(cfg =>
+            //{
+            //    cfg.AddProfile(new UserProfile());
+            //});
         }
        
         public class CategoryProfile : Profile

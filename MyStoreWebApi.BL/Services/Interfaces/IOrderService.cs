@@ -3,7 +3,7 @@ using MyStoreWebApi.BL.Services.Base;
 
 namespace MyStoreWebApi.BL.Services.Interfaces
 {
-    interface IOrderService: IBaseService<OrderDTO>
+    public interface IOrderService: IBaseService<OrderDTO>
     {
     }
 }

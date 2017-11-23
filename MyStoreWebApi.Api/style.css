@@ -1,0 +1,42 @@
+﻿body {
+    margin: 0 auto;
+}
+/* .wrapper{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+} */
+/* .wrapper-body{
+	width: 70%;
+	margin: 0 auto;
+} */
+
+#content {
+	text-indent:20px;
+	text-align:justify;
+}
+#pagingControls {
+	padding-top:15px;
+	font-weight:bold;
+}
+#pagingControls ul {
+	display:inline;
+	padding-left:0.5em;
+}
+#pagingControls li {
+	display:inline;
+	padding:0 0.5em
+}
+.list-clients{
+	margin: 0 auto;
+}
+.controls{
+	display: flex;
+	width: 200px;
+	justify-content: space-evenly;
+}
+
+#listClients{	
+	list-style: none;	
+}
+

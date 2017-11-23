@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStoreWebApi.DAL", "MyStor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStoreWebApi.BL", "MyStoreWebApi.BL\MyStoreWebApi.BL.csproj", "{0DCB0364-D4EB-410C-83AC-11318F07208F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStoreWebApi.Api", "MyStoreWebApi.Api\MyStoreWebApi.Api.csproj", "{ACB08AD5-BB61-48F5-A001-8A95011C342F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStoreWebApi.Api", "MyStoreWebApi.Api\MyStoreWebApi.Api.csproj", "{A10D12D0-52F4-477E-AA1C-962EB6E9CA31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{0DCB0364-D4EB-410C-83AC-11318F07208F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DCB0364-D4EB-410C-83AC-11318F07208F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DCB0364-D4EB-410C-83AC-11318F07208F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ACB08AD5-BB61-48F5-A001-8A95011C342F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ACB08AD5-BB61-48F5-A001-8A95011C342F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ACB08AD5-BB61-48F5-A001-8A95011C342F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ACB08AD5-BB61-48F5-A001-8A95011C342F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A10D12D0-52F4-477E-AA1C-962EB6E9CA31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A10D12D0-52F4-477E-AA1C-962EB6E9CA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A10D12D0-52F4-477E-AA1C-962EB6E9CA31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A10D12D0-52F4-477E-AA1C-962EB6E9CA31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
