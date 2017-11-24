@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using MyStoreWebApi.DAL.Repositories.Base;
 using MyStoreWebApi.DL.Context;
 using MyStoreWebApi.DL.Entities;
@@ -10,11 +12,14 @@ namespace MyStoreWebApi.DAL.Repositories
     public class UserRepository: IUserRepository
     {
         private readonly MyStoreContext _context;
+        private readonly UserManager<User,Guid> _userManager;
         public UserRepository(MyStoreContext context)
         {
             _context = context;
+            _userManager = new UserManager<User,Guid>(new CustomUserStore(context));
         }
 
+        //Register user
         public void Create(User item)
         {
             _context.Users.Add(item);

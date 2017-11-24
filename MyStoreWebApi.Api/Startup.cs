@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using MyStoreWebApi.Api;
+using MyWebAPI.Api.App_Start;
+using MyWebAPI.Api.Models;
 using MyWebAPI.Api.Providers;
 using Owin;
 
@@ -20,6 +25,23 @@ namespace MyWebAPI.Api
             //WebApiConfig.Register(config);
             //app.UseWebApi(config);
             ConfigureOAuth(app);
+            
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+
+            //app.UseCookieAuthentication(new CookieAuthenticationOptions
+            //{
+            //    AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+            //    LoginPath = new PathString("/Account/Login"),
+            //    Provider = new CookieAuthenticationProvider
+            //    {
+            //        OnValidateIdentity = SecurityStampValidator
+            //            .OnValidateIdentity<ApplicationUserManager, ApplicationUser, Guid>(
+            //                validateInterval: TimeSpan.FromMinutes(30),
+            //                regenerateIdentityCallback: (manager, user) =>
+            //                    user.GenerateUserIdentityAsync(manager),
+            //                getUserIdCallback: (id) => (id.GetUserId<Guid>()))
+            //    }
+            //});
         }
         public void ConfigureOAuth(IAppBuilder app)
         {

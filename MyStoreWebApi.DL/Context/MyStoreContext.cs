@@ -1,10 +1,12 @@
 ﻿
+using System;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using MyStoreWebApi.DL.Entities;
 
 namespace MyStoreWebApi.DL.Context
 {
-    public class MyStoreContext: DbContext
+    public class MyStoreContext: IdentityDbContext<User, CustomRole, Guid, Login, Role, Claim>
     {
         public MyStoreContext()
             : base("MyStore")
@@ -13,7 +15,7 @@ namespace MyStoreWebApi.DL.Context
         public DbSet<Order> Orders { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<User> Users { get; set; }
+       // public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -22,6 +24,9 @@ namespace MyStoreWebApi.DL.Context
             modelBuilder.Configurations.Add(new PhotoConfiguration());
             modelBuilder.Configurations.Add(new ProductConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new ClaimConfiguration());
+            modelBuilder.Configurations.Add(new LoginConfiguration());
+            modelBuilder.Configurations.Add(new RoleConfiguration());
         }
 
         public class DatabaseInitializer

@@ -8,13 +8,13 @@ namespace MyWebAPI.Api
 {
     public class AuthRepository : IDisposable
     {
-        private IdentityModels _ctx;
+        private ApplicationDbContext _ctx;
 
         private UserManager<IdentityUser> _userManager;
 
         public AuthRepository()
         {
-            _ctx = new IdentityModels();
+            _ctx = new ApplicationDbContext();
             _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
         }
 
@@ -27,6 +27,7 @@ namespace MyWebAPI.Api
             };
             
             var result = await _userManager.CreateAsync(user, userModel.Password);
+            
 
             return result;
         }
