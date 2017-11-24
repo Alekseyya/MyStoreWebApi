@@ -8,13 +8,13 @@ namespace MyWebAPI.Api
 {
     public class AuthRepository : IDisposable
     {
-        private AuthContext _ctx;
+        private IdentityModels _ctx;
 
         private UserManager<IdentityUser> _userManager;
 
         public AuthRepository()
         {
-            _ctx = new AuthContext();
+            _ctx = new IdentityModels();
             _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
         }
 
