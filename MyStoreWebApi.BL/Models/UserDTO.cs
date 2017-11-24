@@ -1,25 +1,39 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MyStoreWebApi.BL.Models
 {
     public class UserDTO
     {
-        public int Id { get; set; }
-        public string Email { get; set; }
-        public bool EmailConfirmed { get; set; }
-
-        public string PasswordHash { get; set; }
-        public string SecurityStamp { get; set; }
-
-        public string PhoneNumber { get; set; }
-        public bool PhoneNumberConfirmed { get; set; }
-
-        public bool TwoFactorEnabled { get; set; }
-
-        public DateTime? LockoutEndDateUtc { get; set; }
-        public bool LockoutEnabled { get; set; }
-
-        public int AccessFailedCount { get; set; }
-        public string UserName { get; set; }
+       
+        public virtual int AccessFailedCount { get; set; }
+        
+        public virtual ICollection<ClaimDTO> Claims { get; }
+        
+        public virtual string Email { get; set; }
+       
+        public virtual bool EmailConfirmed { get; set; }
+        
+        public virtual Guid Id { get; set; }
+        
+        public virtual bool LockoutEnabled { get; set; }
+        
+        public virtual DateTime? LockoutEndDateUtc { get; set; }
+        
+        public virtual ICollection<LoginDTO> Logins { get; }
+       
+        public virtual string PasswordHash { get; set; }
+       
+        public virtual string PhoneNumber { get; set; }
+        
+        public virtual bool PhoneNumberConfirmed { get; set; }
+        
+        public virtual ICollection<RoleDTO> Roles { get; }
+        
+        public virtual string SecurityStamp { get; set; }
+        
+        public virtual bool TwoFactorEnabled { get; set; }
+        
+        public virtual string UserName { get; set; }
     }
 }

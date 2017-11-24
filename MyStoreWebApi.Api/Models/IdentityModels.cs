@@ -48,7 +48,7 @@ namespace MyWebAPI.Api.Models
         }
     }
 
-    public class ApplicationDbContext: IdentityDbContext<ApplicationUser, CustomRole,
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, CustomRole,
         Guid, CustomUserLogin, CustomUserRole, CustomUserClaim>
     {
         public ApplicationDbContext()
