@@ -54,7 +54,7 @@ namespace MyStoreWebApi.Api.App_Start
                 //RegisterServices(kernel);
 
                 #endregion
-               NinjectRegistrations.RegisterServices(kernel);
+               //NinjectRegistrations.RegisterServices(kernel);
 
                 return kernel;
             }

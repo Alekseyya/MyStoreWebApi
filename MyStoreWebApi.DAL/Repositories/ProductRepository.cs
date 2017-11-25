@@ -33,6 +33,7 @@ namespace MyStoreWebApi.DAL.Repositories
 
         public IQueryable<Product> GetAll()
         {
+            var aa = _context.Products.ToList();
             return _context.Products.Include("Order").Include("Photo")
                                     .Include("Category").AsQueryable();
         }

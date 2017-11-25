@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutofacWebApiRegister.cs" />
     <Compile Include="NinjectRegistrations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

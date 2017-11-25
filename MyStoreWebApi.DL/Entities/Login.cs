@@ -12,6 +12,7 @@ namespace MyStoreWebApi.DL.Entities
     {
         public LoginConfiguration()
         {
+            HasKey(x => x.UserId);
             Property(x => x.UserId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .IsRequired();

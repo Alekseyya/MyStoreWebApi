@@ -7,6 +7,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using MyStoreWebApi.Api;
+using MyStoreWebApi.DI;
 using MyWebAPI.Api.App_Start;
 using MyWebAPI.Api.Models;
 using MyWebAPI.Api.Providers;
@@ -25,8 +26,10 @@ namespace MyWebAPI.Api
             //WebApiConfig.Register(config);
             //app.UseWebApi(config);
             ConfigureOAuth(app);
-            
-            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+
+            AutofacWebApiConfig.Initialize(GlobalConfiguration.Configuration);
+
+            //app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
 
             //app.UseCookieAuthentication(new CookieAuthenticationOptions
             //{

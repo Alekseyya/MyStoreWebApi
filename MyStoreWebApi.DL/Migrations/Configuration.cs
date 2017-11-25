@@ -17,30 +17,30 @@ namespace MyStoreWebApi.DL.Migrations
 
         protected override void Seed(MyStoreWebApi.DL.Context.MyStoreContext context)
         {
-            context.Users.AddOrUpdate(
-                new User
-                {
-                    Id = Guid.NewGuid(),
-                    Email = "al@gmail.com",
-                    EmailConfirmed = false,
-                    PhoneNumberConfirmed = false,
-                    TwoFactorEnabled = false,
-                    LockoutEnabled = true,
-                    AccessFailedCount = 0,
-                    UserName = "al@gmail.com"
-                },
-                new User
-                {
-                    Id = Guid.NewGuid(),
-                    Email = "alek@gmail.com",
-                    EmailConfirmed = false,
-                    PhoneNumberConfirmed = false,
-                    TwoFactorEnabled = false,
-                    LockoutEnabled = true,
-                    AccessFailedCount = 0,
-                    UserName = "alek@gmail.com"
-                }
-            );
+            //context.Users.AddOrUpdate(
+            //    new User
+            //    {
+            //        Id = Guid.NewGuid(),
+            //        Email = "al@gmail.com",
+            //        EmailConfirmed = false,
+            //        PhoneNumberConfirmed = false,
+            //        TwoFactorEnabled = false,
+            //        LockoutEnabled = true,
+            //        AccessFailedCount = 0,
+            //        UserName = "al@gmail.com"
+            //    },
+            //    new User
+            //    {
+            //        Id = Guid.NewGuid(),
+            //        Email = "alek@gmail.com",
+            //        EmailConfirmed = false,
+            //        PhoneNumberConfirmed = false,
+            //        TwoFactorEnabled = false,
+            //        LockoutEnabled = true,
+            //        AccessFailedCount = 0,
+            //        UserName = "alek@gmail.com"
+            //    }
+            //);
             context.Categories.AddOrUpdate(
 
                 new Category { Name = "Cars" },

@@ -12,6 +12,7 @@ namespace MyStoreWebApi.BL.Services
 {
     public class UserService : IUserService
     {
+        //usermanager
         private readonly IUnitOfWork _unitOfWork;
         public UserService(IUnitOfWork unitOfWork)
         {

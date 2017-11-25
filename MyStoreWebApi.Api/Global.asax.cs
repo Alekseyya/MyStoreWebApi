@@ -4,6 +4,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using MyStoreWebApi.Api.App_Start;
 using MyStoreWebApi.BL.MapperConfig;
+using MyStoreWebApi.DI;
 
 namespace MyStoreWebApi.Api
 {
@@ -18,6 +19,8 @@ namespace MyStoreWebApi.Api
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             AutoMapperApiConfiguration.Configure();
+            
+
             //AutoMapperServiceConfiguration.Configure();
 
             //NinjectModule registrations = new NinjectRegistrations();

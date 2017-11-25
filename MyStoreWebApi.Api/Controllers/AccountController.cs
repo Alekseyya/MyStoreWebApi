@@ -4,12 +4,15 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using MyStoreWebApi.Api.Models;
 using MyStoreWebApi.BL.Models;
 using MyStoreWebApi.BL.Services.Interfaces;
+using MyWebAPI.Api.App_Start;
 using MyWebAPI.Api.Models;
 
 namespace MyWebAPI.Api.Controllers
@@ -18,6 +21,19 @@ namespace MyWebAPI.Api.Controllers
     {
         private AuthRepository _repo = null;
         private readonly IUserService _service;
+        //private ApplicationUserManager _userManager;
+
+        //public ApplicationUserManager UserManager
+        //{
+        //    get
+        //    {
+        //        return _userManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+        //    }
+        //    private set
+        //    {
+        //        _userManager = value;
+        //    }
+        //}
 
         public AccountController(IUserService service)
         {
@@ -48,15 +64,19 @@ namespace MyWebAPI.Api.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
-            IdentityResult result = await _repo.RegisterUser(userModel);
-
-            IHttpActionResult errorResult = GetErrorResult(result);
-
-            if (errorResult != null)
+            var user = new User()
             {
-                return errorResult;
-            }
+                UserName = userModel.UserName
+            };
+
+            // var result = UserManager.Create(user, userModel.Password); go to service
+
+            //IHttpActionResult errorResult = GetErrorResult(result);
+
+            //if (errorResult != null)
+            //{
+            //    return errorResult;
+            //}
 
             return Ok();
         }

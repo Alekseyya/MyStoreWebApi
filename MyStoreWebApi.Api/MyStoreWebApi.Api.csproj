@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.4.1.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="AutoMapper, Version=6.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -241,6 +249,7 @@
     <Folder Include="Views\Client\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutofacWebApiConfig.cs" />
     <Compile Include="App_Start\AutoMapperApiConfiguration.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -358,14 +367,6 @@
     <ProjectReference Include="..\MyStoreWebApi.DI\MyStoreWebApi.DI.csproj">
       <Project>{d6c7abe3-94f7-4aa3-8d8b-2c9652a743dd}</Project>
       <Name>MyStoreWebApi.DI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MyWebAPI.BL\MyWebAPI.BL.csproj">
-      <Project>{76186501-634D-4A01-A7F3-E1CADBE60480}</Project>
-      <Name>MyWebAPI.BL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MyWebAPI.DI\MyWebAPI.DI.csproj">
-      <Project>{A6919D8C-92C1-4F58-9762-C60BF4F11320}</Project>
-      <Name>MyWebAPI.DI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
