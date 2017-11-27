@@ -8,6 +8,8 @@ namespace MyStoreWebApi.DAL.Repositories.Base
         new bool Create(User user);
         void Delete(Guid guid);
         User FindByEmail(User user);
+        User Find(User user);
         void Delete(User user);
+
     }
 }

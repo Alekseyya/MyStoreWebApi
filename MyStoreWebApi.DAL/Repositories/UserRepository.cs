@@ -30,6 +30,14 @@ namespace MyStoreWebApi.DAL.Repositories
             return false;
         }
 
+        public User Find(User user)
+        {
+            var userFind = _userManager.Find(user.UserName, user.PasswordHash);
+            if (userFind != null)
+                return userFind;
+            return null;
+        }
+
         public void Delete(User user)
         {
             _userManager.Delete(user);

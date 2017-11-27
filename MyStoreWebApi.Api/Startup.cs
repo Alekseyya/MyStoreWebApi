@@ -1,12 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Dependencies;
+using System.Web.Mvc;
+using Autofac;
+using Autofac.Core;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using MyStoreWebApi.Api;
+using MyStoreWebApi.BL.Services;
+using MyStoreWebApi.BL.Services.Interfaces;
 using MyStoreWebApi.DI;
 using MyWebAPI.Api.App_Start;
 using MyWebAPI.Api.Models;
@@ -26,8 +34,8 @@ namespace MyWebAPI.Api
             //WebApiConfig.Register(config);
             //app.UseWebApi(config);
             ConfigureOAuth(app);
+            
 
-            AutofacWebApiConfig.Initialize(GlobalConfiguration.Configuration);
 
             //app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
 
@@ -48,13 +56,34 @@ namespace MyWebAPI.Api
         }
         public void ConfigureOAuth(IAppBuilder app)
         {
+            var root = AutofacWebApiConfig.Container.ComponentRegistry.Registrations.FirstOrDefault
+                                            (o=>o.Activator.LimitType.Name == "UserService");
+            var temp = root.Services;
+            
+
+            IUserService single = null;
+            using (var aa = AutofacWebApiConfig.Container.BeginLifetimeScope())
+            {
+                single = aa.Resolve<UserService>();
+            }
+
+            //var bb = ((IDependencyScope) AutofacWebApiConfig.Config.DependencyResolver).GetService(typeof(UserService));
+
+            var userService = (IUserService)GlobalConfiguration.Configuration.DependencyResolver.GetService(typeof(UserService));
+            //using (var a = GlobalConfiguration.Configuration.DependencyResolver.BeginScope())
+            //{
+            //    var aa = a.GetService<IUserService>(typeof(UserService));
+
+            //    var bb = a.GetServices()
+            //}
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
                 AuthorizeEndpointPath = new PathString(""),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new SimpleAuthorizationServerProvider()
+                Provider = new SimpleAuthorizationServerProvider(single)
+                
             };
 
             // Token Generation

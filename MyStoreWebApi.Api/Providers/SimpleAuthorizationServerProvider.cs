@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
+using MyStoreWebApi.BL.Models;
+using MyStoreWebApi.BL.Services;
+using MyStoreWebApi.BL.Services.Interfaces;
 
 namespace MyWebAPI.Api.Providers
 {
     public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
+        private readonly IUserService _service;
+        public SimpleAuthorizationServerProvider(IUserService service)
+        {
+            _service = service;
+        }
+
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             context.Validated();
@@ -21,16 +30,13 @@ namespace MyWebAPI.Api.Providers
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            using (AuthRepository _repo = new AuthRepository())
+            var user = _service.FindUser(new UserDTO() { Password = context.Password, UserName = context.UserName });
+            if (user == null)
             {
-                IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
-                //есть ли пользователь в системе
-                if (user == null)
-                {
-                    context.SetError("invalid_grant", "The user name or password is incorrect.");
-                    return;
-                }
+                context.SetError("invalid_grant", "The user name or password is incorrect.");
+                return;
             }
+
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
             identity.AddClaim(new Claim("sub", context.UserName));

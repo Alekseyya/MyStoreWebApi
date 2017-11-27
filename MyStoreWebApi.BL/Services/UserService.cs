@@ -55,6 +55,15 @@ namespace MyStoreWebApi.BL.Services
             return null;
         }
 
+        public UserDTO FindUser(UserDTO user)
+        {
+            var userFind = Mapper.Map<UserDTO, User>(user);
+            var findedUser = _unitOfWork.UserRepository.Find(userFind);
+            if (findedUser != null)
+                return Mapper.Map<User, UserDTO>(findedUser);
+            return null;
+        }
+
         public void UpdateItem(UserDTO item)
         {
             var user = Mapper.Map<UserDTO, User>(item);
