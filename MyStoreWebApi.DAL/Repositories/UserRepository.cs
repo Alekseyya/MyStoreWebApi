@@ -20,9 +20,19 @@ namespace MyStoreWebApi.DAL.Repositories
         }
 
         //Register user
-        public void Create(User item)
+        public bool Create(User item)
         {
-            _context.Users.Add(item);
+            var result = _userManager.Create(item, item.PasswordHash);
+            //_context.Users.Add(item);
+            _context.SaveChanges();
+            if (result.Succeeded)
+                return true;
+            return false;
+        }
+
+        public void Delete(User user)
+        {
+            _userManager.Delete(user);
             _context.SaveChanges();
         }
 
@@ -41,6 +51,13 @@ namespace MyStoreWebApi.DAL.Repositories
             
         }
 
+        public User FindByEmail(User user)
+        {
+            var userFind =  _userManager.FindByEmail(user.Email);
+            return userFind;
+
+        }
+
         public IQueryable<User> GetAll()
         {
             return _context.Users.AsQueryable();
@@ -48,13 +65,14 @@ namespace MyStoreWebApi.DAL.Repositories
 
         public User GetItemById(Guid guid)
         {
-            var user = _context.Users.FirstOrDefault(x => x.Id == guid);
-            if (user != null)
-                return user;
-            else
-            {
-                return null;
-            }
+            //var user = _context.Users.FirstOrDefault(x => x.Id == guid);
+            //if (user != null)
+            //    return user;
+            //else
+            //{
+            //    return null;
+            //}
+            return null;
         }
 
         public User GetItemById(int id)
@@ -62,69 +80,75 @@ namespace MyStoreWebApi.DAL.Repositories
             return null;
         }
 
+        void IBaseRepository<User>.Create(User item)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(User item)
         {
-            var user = _context.Users.FirstOrDefault(o => o.Id == item.Id);
+            var userUpdate = _userManager.FindById(item.Id);
+
             bool isModified = false;
 
-            if (user.Email != item.Email)
+            if (userUpdate.Email != item.Email)
             {
-                user.Email = item.Email;
+                userUpdate.Email = item.Email;
                 isModified = true;
             }
-            if (user.EmailConfirmed != item.EmailConfirmed)
+            if (userUpdate.EmailConfirmed != item.EmailConfirmed)
             {
-                user.EmailConfirmed = item.EmailConfirmed;
+                userUpdate.EmailConfirmed = item.EmailConfirmed;
                 isModified = true;
             }
-            if (user.PasswordHash != item.PasswordHash)
+            if (userUpdate.PasswordHash != item.PasswordHash)
             {
-                user.PasswordHash = item.PasswordHash;
+                userUpdate.PasswordHash = item.PasswordHash;
                 isModified = true;
             }
-            if (user.SecurityStamp != item.SecurityStamp)
+            if (userUpdate.SecurityStamp != item.SecurityStamp)
             {
-                user.SecurityStamp = item.SecurityStamp;
+                userUpdate.SecurityStamp = item.SecurityStamp;
                 isModified = true;
             }
-            if (user.PhoneNumber != item.PhoneNumber)
+            if (userUpdate.PhoneNumber != item.PhoneNumber)
             {
-                user.PhoneNumber = item.PhoneNumber;
+                userUpdate.PhoneNumber = item.PhoneNumber;
                 isModified = true;
             }
-            if (user.PhoneNumberConfirmed != item.PhoneNumberConfirmed)
+            if (userUpdate.PhoneNumberConfirmed != item.PhoneNumberConfirmed)
             {
-                user.PhoneNumberConfirmed = item.PhoneNumberConfirmed;
+                userUpdate.PhoneNumberConfirmed = item.PhoneNumberConfirmed;
                 isModified = true;
             }
-            if (user.TwoFactorEnabled != item.TwoFactorEnabled)
+            if (userUpdate.TwoFactorEnabled != item.TwoFactorEnabled)
             {
-                user.TwoFactorEnabled = item.TwoFactorEnabled;
+                userUpdate.TwoFactorEnabled = item.TwoFactorEnabled;
                 isModified = true;
             }
-            if (user.LockoutEndDateUtc != item.LockoutEndDateUtc)
+            if (userUpdate.LockoutEndDateUtc != item.LockoutEndDateUtc)
             {
-                user.LockoutEndDateUtc = item.LockoutEndDateUtc;
+                userUpdate.LockoutEndDateUtc = item.LockoutEndDateUtc;
                 isModified = true;
             }
-            if (user.LockoutEnabled != item.LockoutEnabled)
+            if (userUpdate.LockoutEnabled != item.LockoutEnabled)
             {
-                user.LockoutEnabled = item.LockoutEnabled;
+                userUpdate.LockoutEnabled = item.LockoutEnabled;
                 isModified = true;
             }
-            if (user.AccessFailedCount != item.AccessFailedCount)
+            if (userUpdate.AccessFailedCount != item.AccessFailedCount)
             {
-                user.AccessFailedCount = item.AccessFailedCount;
+                userUpdate.AccessFailedCount = item.AccessFailedCount;
                 isModified = true;
             }
-            if (user.UserName != item.UserName)
+            if (userUpdate.UserName != item.UserName)
             {
-                user.UserName = item.UserName;
+                userUpdate.UserName = item.UserName;
                 isModified = true;
             }
             if (isModified)
             {
-                _context.Entry(user).State = EntityState.Modified;
+                _userManager.Update(userUpdate);
                 _context.SaveChanges();
             }
         }

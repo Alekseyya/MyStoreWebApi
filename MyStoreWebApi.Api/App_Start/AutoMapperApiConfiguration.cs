@@ -2,6 +2,7 @@
 using MyStoreWebApi.BL.Models;
 using MyStoreWebApi.Api.Models;
 using MyStoreWebApi.BL.MapperConfig;
+using MyWebAPI.Api.Models;
 
 namespace MyStoreWebApi.Api.App_Start
 {
@@ -12,6 +13,7 @@ namespace MyStoreWebApi.Api.App_Start
             Mapper.Initialize(cfg =>
             {
                 cfg.AddProfile(new ClientProfile());
+                cfg.AddProfile(new UserModelProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.CategoryProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.OrderProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.PhotoProfile());
@@ -25,6 +27,14 @@ namespace MyStoreWebApi.Api.App_Start
             public ClientProfile()
             {
                 CreateMap<UserDTO, User>();
+            }
+
+        }
+        public class UserModelProfile : Profile
+        {
+            public UserModelProfile()
+            {
+                CreateMap<UserModel, UserDTO>();
             }
 
         }

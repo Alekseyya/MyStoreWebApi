@@ -64,19 +64,14 @@ namespace MyWebAPI.Api.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var user = new User()
-            {
-                UserName = userModel.UserName
-            };
-
             // var result = UserManager.Create(user, userModel.Password); go to service
+            var user = Mapper.Map<UserModel, UserDTO>(userModel);
+            var resultAdd = _service.AddItem(user);
 
-            //IHttpActionResult errorResult = GetErrorResult(result);
-
-            //if (errorResult != null)
-            //{
-            //    return errorResult;
-            //}
+            if (!resultAdd)
+            {
+                return GetErrorResult();
+            }
 
             return Ok();
         }
@@ -91,32 +86,33 @@ namespace MyWebAPI.Api.Controllers
             base.Dispose(disposing);
         }
 
-        private IHttpActionResult GetErrorResult(IdentityResult result)
+        
+
+        private IHttpActionResult GetErrorResult()
         {
-            if (result == null)
-            {
-                return InternalServerError();
-            }
+            //if (result == null)
+            //{
+            //    return InternalServerError();
+            //}
 
-            if (!result.Succeeded)
-            {
-                if (result.Errors != null)
-                {
-                    foreach (string error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error);
-                    }
-                }
+            //if (!result)
+            //{
+            //    if (result.Errors != null)
+            //    {
+            //        foreach (string error in result.Errors)
+            //        {
+            //            ModelState.AddModelError("", error);
+            //        }
+            //    }
 
-                if (ModelState.IsValid)
-                {
-                    // No ModelState errors are available to send, so just return an empty BadRequest.
-                    return BadRequest();
-                }
+            //    if (ModelState.IsValid)
+            //    {
+            //        // No ModelState errors are available to send, so just return an empty BadRequest.
+            //        return BadRequest();
+            //    }
 
-                return BadRequest(ModelState);
-            }
-
+            //    return BadRequest(ModelState);
+            //}
             return null;
         }
     }

@@ -5,5 +5,6 @@ namespace MyStoreWebApi.BL.Services.Interfaces
 {
     public interface IUserService : IBaseService<UserDTO>
     {
+        new bool AddItem(UserDTO user);
     }
 }

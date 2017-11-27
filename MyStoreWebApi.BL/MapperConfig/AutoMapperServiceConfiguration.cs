@@ -68,7 +68,8 @@ namespace MyStoreWebApi.BL.MapperConfig
         {
             public UserProfile()
             {
-                CreateMap<UserDTO, User>();
+                CreateMap<UserDTO, User>()
+                    .ForMember("PasswordHash", opt=>opt.MapFrom(c=>c.Password));
             }
 
         }

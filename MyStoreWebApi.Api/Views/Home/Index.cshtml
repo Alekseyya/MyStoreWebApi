@@ -31,20 +31,14 @@
             console.log(user);
 
             $.ajax({
-                url: '/api/account/adduser',
+                url: '/api/account/register',
                 type: 'Post',
                 data: user
             }).success(function (data) {
-                alert("Регистрация пройдена" + data);
+                alert("Registration Finished");
             }).fail(function (data) {
-                alert("В процесе регистрации возникла ошибка" + data);
-            });
-
-            //$.ajax({
-            //    url: 'api/account/register',
-            //    type: 'Post',
-            //    data: user
-            //});
+                alert("Registration Faled" + data);
+            });           
         });
     })
 </script>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using MyStoreWebApi.BL.Models;
+using MyStoreWebApi.BL.Services.Base;
 using MyStoreWebApi.BL.Services.Interfaces;
 using MyStoreWebApi.DAL.Repositories;
 using MyStoreWebApi.DAL.Repositories.Base;
@@ -19,10 +20,13 @@ namespace MyStoreWebApi.BL.Services
             _unitOfWork = unitOfWork;
         }
 
-        public void AddItem(UserDTO item)
+        public bool AddItem(UserDTO item)
         {
             var user = Mapper.Map<UserDTO, User>(item);
-            _unitOfWork.UserRepository.Create(user);
+            var result = _unitOfWork.UserRepository.Create(user);
+            if (result)
+                return true;
+            return false;
         }
 
         public void DeleteItem(UserDTO item)
@@ -55,6 +59,11 @@ namespace MyStoreWebApi.BL.Services
         {
             var user = Mapper.Map<UserDTO, User>(item);
             _unitOfWork.UserRepository.Update(user);
+        }
+
+        void IBaseService<UserDTO>.AddItem(UserDTO item)
+        {
+            throw new NotImplementedException();
         }
     }
 }

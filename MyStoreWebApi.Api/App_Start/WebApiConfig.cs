@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Microsoft.Owin.Security.OAuth;
 using MyStoreWebApi.DI;
 using Ninject;
 using Ninject.Modules;
@@ -15,7 +16,7 @@ namespace MyStoreWebApi.Api
     {
         public static void Register(HttpConfiguration config)
         {
-            // Конфигурация и службы веб-API
+            
             //var cors = new EnableCorsAttribute("localhost:8082", "*", "*");
             config.EnableCors();
 
@@ -35,7 +36,11 @@ namespace MyStoreWebApi.Api
             config.Formatters.JsonFormatter.SupportedMediaTypes
                 .Add(new MediaTypeHeaderValue("text/html"));
 
-            
+            //settings authentication web api only use authentication token
+
+            config.SuppressDefaultHostAuthentication();
+            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+
         }
     }
 }

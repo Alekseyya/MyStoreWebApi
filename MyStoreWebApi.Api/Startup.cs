@@ -52,6 +52,7 @@ namespace MyWebAPI.Api
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
+                AuthorizeEndpointPath = new PathString(""),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
                 Provider = new SimpleAuthorizationServerProvider()
             };
