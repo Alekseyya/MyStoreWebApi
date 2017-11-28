@@ -70,6 +70,7 @@ namespace MyStoreWebApi.BL.MapperConfig
             {
                 CreateMap<UserDTO, User>()
                     .ForMember("PasswordHash", opt=>opt.MapFrom(c=>c.Password));
+                CreateMap<User, UserDTO>().ForMember("Password", opt => opt.MapFrom(c => c.PasswordHash));
             }
 
         }

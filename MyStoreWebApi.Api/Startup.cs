@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Dependencies;
 using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
 using Autofac;
 using Autofac.Core;
 using Microsoft.AspNet.Identity;
@@ -13,6 +15,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using MyStoreWebApi.Api;
+using MyStoreWebApi.Api.App_Start;
 using MyStoreWebApi.BL.Services;
 using MyStoreWebApi.BL.Services.Interfaces;
 using MyStoreWebApi.DI;
@@ -27,15 +30,26 @@ namespace MyWebAPI.Api
 {
     public class Startup
     {
+        public static IContainer Container;
         public void Configuration(IAppBuilder app)
         {
-            // Дополнительные сведения о настройке приложения см. по адресу: http://go.microsoft.com/fwlink/?LinkID=316888
+            AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
+            Container =  AutofacWebApiConfig.Initialize();
+
+            AutoMapperApiConfiguration.Configure();
+
             //HttpConfiguration config = new HttpConfiguration();
             //WebApiConfig.Register(config);
             //app.UseWebApi(config);
+
             ConfigureOAuth(app);
             
-
 
             //app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
 
@@ -56,34 +70,20 @@ namespace MyWebAPI.Api
         }
         public void ConfigureOAuth(IAppBuilder app)
         {
-            var root = AutofacWebApiConfig.Container.ComponentRegistry.Registrations.FirstOrDefault
-                                            (o=>o.Activator.LimitType.Name == "UserService");
-            var temp = root.Services;
+            //var root = AutofacWebApiConfig.Container.ComponentRegistry.Registrations.FirstOrDefault
+                                            //(o=>o.Activator.LimitType.Name == "UserService");
+            //var temp = root.Services;
+
+            //create singleton
+            var userService = Container.Resolve<IUserService>();
             
-
-            IUserService single = null;
-            using (var aa = AutofacWebApiConfig.Container.BeginLifetimeScope())
-            {
-                single = aa.Resolve<UserService>();
-            }
-
-            //var bb = ((IDependencyScope) AutofacWebApiConfig.Config.DependencyResolver).GetService(typeof(UserService));
-
-            var userService = (IUserService)GlobalConfiguration.Configuration.DependencyResolver.GetService(typeof(UserService));
-            //using (var a = GlobalConfiguration.Configuration.DependencyResolver.BeginScope())
-            //{
-            //    var aa = a.GetService<IUserService>(typeof(UserService));
-
-            //    var bb = a.GetServices()
-            //}
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
-                AuthorizeEndpointPath = new PathString(""),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new SimpleAuthorizationServerProvider(single)
-                
+                Provider = new SimpleAuthorizationServerProvider(userService)
+
             };
 
             // Token Generation

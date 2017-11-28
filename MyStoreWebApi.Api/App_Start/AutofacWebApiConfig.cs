@@ -11,16 +11,23 @@ namespace MyWebAPI.Api.App_Start
 {
     public class AutofacWebApiConfig
     {
-        public static IContainer Container;
-
-        public static HttpConfiguration Config;
-        public static void Initialize(HttpConfiguration config)
+        public static IContainer Initialize()
         {
             var builder = new ContainerBuilder();
+            var config = GlobalConfiguration.Configuration;
+
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-            Container = AutofacWebApiRegister.RegisterServices(builder);
-            config.DependencyResolver = new AutofacWebApiDependencyResolver(Container);
-            Config = config;
+
+            builder.RegisterWebApiFilterProvider(config);
+
+            builder.RegisterWebApiModelBinderProvider();
+
+            AutofacWebApiRegister.RegisterWebApiServices(builder);
+
+            var container = builder.Build();
+
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+            return container;
         }
     }
 }

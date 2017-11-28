@@ -14,10 +14,11 @@ namespace MyWebAPI.Api.Providers
 {
     public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
-        private readonly IUserService _service;
+        private static IUserService _service;
         public SimpleAuthorizationServerProvider(IUserService service)
         {
-            _service = service;
+            if (_service == null)
+                _service = service;
         }
 
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)

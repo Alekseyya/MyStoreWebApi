@@ -19,33 +19,11 @@ namespace MyWebAPI.Api.Controllers
 {
     public class AccountController : ApiController
     {
-        private AuthRepository _repo = null;
         private readonly IUserService _service;
-        //private ApplicationUserManager _userManager;
-
-        //public ApplicationUserManager UserManager
-        //{
-        //    get
-        //    {
-        //        return _userManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
-        //    }
-        //    private set
-        //    {
-        //        _userManager = value;
-        //    }
-        //}
-
         public AccountController(IUserService service)
         {
-            _repo = new AuthRepository();
+            
             _service = service;
-        }
-
-
-        [HttpPost]
-        public void AddUser(UserModel user)
-        {
-            var aa = 0;
         }
 
         [HttpGet]
@@ -75,17 +53,6 @@ namespace MyWebAPI.Api.Controllers
 
             return Ok();
         }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _repo.Dispose();
-            }
-
-            base.Dispose(disposing);
-        }
-
         
 
         private IHttpActionResult GetErrorResult()

@@ -12,8 +12,8 @@ namespace MyStoreWebApi.Api.App_Start
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.AddProfile(new ClientProfile());
                 cfg.AddProfile(new UserModelProfile());
+                cfg.AddProfile(new UserWebApiProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.CategoryProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.OrderProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.PhotoProfile());
@@ -22,19 +22,19 @@ namespace MyStoreWebApi.Api.App_Start
             });
             
         }
-        public class ClientProfile : Profile
-        {
-            public ClientProfile()
-            {
-                CreateMap<UserDTO, User>();
-            }
-
-        }
         public class UserModelProfile : Profile
         {
             public UserModelProfile()
             {
                 CreateMap<UserModel, UserDTO>();
+            }
+
+        }
+        public class UserWebApiProfile : Profile
+        {
+            public UserWebApiProfile()
+            {
+                CreateMap<UserDTO, User>();
             }
 
         }

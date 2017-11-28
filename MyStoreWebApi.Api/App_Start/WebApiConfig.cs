@@ -6,9 +6,6 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using Microsoft.Owin.Security.OAuth;
 using MyStoreWebApi.DI;
-using Ninject;
-using Ninject.Modules;
-using Ninject.Web.WebApi;
 
 namespace MyStoreWebApi.Api
 {
@@ -38,8 +35,8 @@ namespace MyStoreWebApi.Api
 
             //settings authentication web api only use authentication token
 
-            config.SuppressDefaultHostAuthentication();
-            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            //config.SuppressDefaultHostAuthentication();
+            //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
         }
     }

@@ -22,16 +22,20 @@
  
 
 <div class="userInfo" style="display:none;">
-    <p>Вы вошли как: <span class="userName"></span></p>
-    <input type="button" value="Выйти" id="logOut" />
+    <p>You logged as: <span class="userName"></span></p>
+    <input type="button" value="Exit" id="logOut" />
 </div>
 <div class="loginForm">
     <h3>Sing Up</h3>
     <label>Enter Login</label><br />
-    <input type="email" id="userLogin" /> <br /><br />
+    <input type="text" id="userLogin" /> <br /><br />
     <label>Enter password</label><br />
     <input type="password" id="userPassword" /><br /><br />
     <input type="submit" id="submitLogin" value="Login" />
+</div>
+
+<div>
+    <input type="submit" id="getItemsButton" value="Получить данные" />
 </div>
 
 <script type="text/javascript">
@@ -44,32 +48,6 @@
                 Password: $('#password').val(),
                 ConfirmPassword: $('#confirmpassword').val()
             };
-
-            var tokenKey = "tokenInfo";
-        $('#submitLogin').click(function (e) {
-            e.preventDefault();
-            var loginData = {
-                grant_type: 'password',
-                username: $('#emailLogin').val(),
-                password: $('#passwordLogin').val()
-            };
-
-            $.ajax({
-                type: 'POST',
-                url: '/Token',
-                data: loginData
-            }).success(function (data) {
-                $('.userName').text(data.userName);
-                $('.userInfo').css('display', 'block');
-                $('.loginForm').css('display', 'none');
-                // сохраняем в хранилище sessionStorage токен доступа
-                sessionStorage.setItem(tokenKey, data.access_token);
-                console.log(data.access_token);
-            }).fail(function (data) {
-                alert('При логине возникла ошибка');
-            });
-            console.log(user);
-
             $.ajax({
                 url: '/api/account/register',
                 type: 'Post',
@@ -80,6 +58,57 @@
                 alert("Registration Faled" + data);
             });           
         });
+
+
+        var tokenKey = "tokenInfo";
+        $('#submitLogin').click(function (e) {
+            e.preventDefault();
+            var loginData = {
+                grant_type: 'password',
+                username: $('#userLogin').val(),
+                password: $('#userPassword').val()
+            };
+ 
+            $.ajax({
+                type: 'POST',
+                url: '/Token',
+                data: loginData
+            }).success(function (data) {
+                $('.userName').text(data.userName);
+                $('.userInfo').css('display', 'block');
+                $('.loginForm').css('display', 'none');                
+                sessionStorage.setItem(tokenKey, data.access_token);
+                var token = sessionStorage.getItem(tokenKey);
+                console.log(token);
+            }).fail(function (data) {
+                alert('At login there was an error');
+            });
+        });
+ 
+        $('#logOut').click(function (e) {
+            e.preventDefault();
+            sessionStorage.removeItem(tokenKey);
+        });
+
+            $('#getItemsButton').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'GET',
+                url: '/api/product/getproducts',
+                beforeSend: function (xhr) {
+                     
+                    var token = sessionStorage.getItem(tokenKey);
+                    xhr.setRequestHeader("Authorization", "Bearer " + token);
+                },
+                success: function (data) {
+                    console.log(data);
+                },
+                fail: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
     })
 </script>
 

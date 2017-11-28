@@ -11,22 +11,18 @@ namespace MyStoreWebApi.DI
 {
     public class AutofacWebApiRegister
     {
-        public static IContainer RegisterServices(ContainerBuilder builder)
+        public static void RegisterWebApiServices(ContainerBuilder builder)
         {
-            
             builder.RegisterType<UnitOfWork>()
-                .As<IUnitOfWork>().InstancePerRequest();
+                .As<IUnitOfWork>();
             builder.RegisterType<CategoryService>()
-                .As<ICategoryService>().InstancePerRequest();
+                .As<ICategoryService>();
             builder.RegisterType<OrderService>()
-                .As<IOrderService>().InstancePerRequest();
+                .As<IOrderService>();
             builder.RegisterType<ProductService>()
-                .As<IProductService>().InstancePerRequest();
+                .As<IProductService>();
             builder.RegisterType<UserService>()
-                .As<IUserService>().InstancePerRequest();
-
-            //Set the dependency resolver to be Autofac.  
-            return builder.Build();
+                .As<IUserService>();
         }
     }
 }

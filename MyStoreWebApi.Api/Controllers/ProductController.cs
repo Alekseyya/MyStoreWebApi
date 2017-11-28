@@ -14,6 +14,7 @@ using MyWebAPI.Api.Models;
 
 namespace MyWebAPI.Api.Controllers
 {
+    [Authorize]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductController : ApiController
     {

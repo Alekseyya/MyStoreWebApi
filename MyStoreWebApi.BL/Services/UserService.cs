@@ -60,7 +60,10 @@ namespace MyStoreWebApi.BL.Services
             var userFind = Mapper.Map<UserDTO, User>(user);
             var findedUser = _unitOfWork.UserRepository.Find(userFind);
             if (findedUser != null)
+            {
                 return Mapper.Map<User, UserDTO>(findedUser);
+            }
+                
             return null;
         }
 
