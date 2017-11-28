@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -17,33 +18,33 @@ using MyWebAPI.Api.Models;
 
 namespace MyWebAPI.Api.Controllers
 {
+    [Authorize]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AccountController : ApiController
     {
         private readonly IUserService _service;
         public AccountController(IUserService service)
         {
-            
             _service = service;
         }
 
         [HttpGet]
-        public IEnumerable<User> GetUsers()
+        public IEnumerable<UserModel> GetUsers()
         {
-            var users = Mapper.Map<IEnumerable<UserDTO>, List<User>>(_service.GetAll());
+            var users = Mapper.Map<IEnumerable<UserDTO>, List<UserModel>>(_service.GetAll());
             return users;
         }
 
         [HttpPost]
-        //[AllowAnonymous]
-        //[Route("Register")]
-        public async Task<IHttpActionResult> Register(UserModel userModel)
+        [AllowAnonymous]        
+        public async Task<IHttpActionResult> Register(UserRegisterModel userRegisterModel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            // var result = UserManager.Create(user, userModel.Password); go to service
-            var user = Mapper.Map<UserModel, UserDTO>(userModel);
+
+            var user = Mapper.Map<UserRegisterModel, UserDTO>(userRegisterModel);
             var resultAdd = _service.AddItem(user);
 
             if (!resultAdd)

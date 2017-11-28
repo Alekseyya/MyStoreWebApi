@@ -1,6 +1,6 @@
 ﻿namespace MyWebAPI.Api.Models
 {
-    public class Product
+    public class ProductViewModel
     {
         public string Name { get; set; }
         public string Descriptions { get; set; }

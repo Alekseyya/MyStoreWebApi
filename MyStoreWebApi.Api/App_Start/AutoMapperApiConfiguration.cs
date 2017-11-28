@@ -26,7 +26,25 @@ namespace MyStoreWebApi.Api.App_Start
         {
             public UserModelProfile()
             {
-                CreateMap<UserModel, UserDTO>();
+                CreateMap<UserRegisterModel, UserDTO>();
+            }
+
+        }
+
+        public class CategoryWebApiProfile : Profile
+        {
+            public CategoryWebApiProfile()
+            {
+                CreateMap<CategoryViewModel, CategoryDTO>();
+            }
+
+        }
+
+        public class ProductWebApiProfile : Profile
+        {
+            public ProductWebApiProfile()
+            {
+                CreateMap<ProductViewModel, ProductDTO>();
             }
 
         }
@@ -34,7 +52,7 @@ namespace MyStoreWebApi.Api.App_Start
         {
             public UserWebApiProfile()
             {
-                CreateMap<UserDTO, User>();
+                CreateMap<UserDTO, UserModel>();
             }
 
         }

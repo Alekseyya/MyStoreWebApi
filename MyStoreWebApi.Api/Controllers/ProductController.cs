@@ -25,32 +25,32 @@ namespace MyWebAPI.Api.Controllers
         }
 
         [HttpPost]
-        public void AddProduct(Product product)
+        public void AddProduct(ProductViewModel productViewModel)
         {
-            var newProduct = Mapper.Map<Product, ProductDTO>(product);
+            var newProduct = Mapper.Map<ProductViewModel, ProductDTO>(productViewModel);
             _service.AddItem(newProduct);
         }
 
         [HttpPost]
-        public void UpdateProduct(Product product)
+        public void UpdateProduct(ProductViewModel productViewModel)
         {
-            var correctProduct = Mapper.Map<Product, ProductDTO>(product);
+            var correctProduct = Mapper.Map<ProductViewModel, ProductDTO>(productViewModel);
             _service.UpdateItem(correctProduct);
         }
 
         [HttpPost]
-        public void DeleteProduct(Product product)
+        public void DeleteProduct(ProductViewModel productViewModel)
         {
-            var deletedProduct = Mapper.Map<Product, ProductDTO>(product);
+            var deletedProduct = Mapper.Map<ProductViewModel, ProductDTO>(productViewModel);
             _service.DeleteItem(deletedProduct);
         }
 
 
         [HttpGet]
-        public IEnumerable<Product> GetProducts()
+        public IEnumerable<ProductViewModel> GetProducts()
         {
             var products =
-                Mapper.Map<IEnumerable<ProductDTO>, List<Product>>(_service.GetAll());
+                Mapper.Map<IEnumerable<ProductDTO>, List<ProductViewModel>>(_service.GetAll());
             return products;
         }
         

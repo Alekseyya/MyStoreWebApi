@@ -16,32 +16,32 @@ namespace MyWebAPI.Api.Controllers
         }
 
         [HttpPost]
-        public void AddOrder(Order order)
+        public void AddOrder(OrderViewModel orderViewModel)
         {
-            var newOrder = Mapper.Map<Order, OrderDTO>(order);
+            var newOrder = Mapper.Map<OrderViewModel, OrderDTO>(orderViewModel);
             _service.AddItem(newOrder);
         }
 
         [HttpPost]
-        public void UpdateOrder(Order order)
+        public void UpdateOrder(OrderViewModel orderViewModel)
         {
-            var correntOrder = Mapper.Map<Order, OrderDTO>(order);
+            var correntOrder = Mapper.Map<OrderViewModel, OrderDTO>(orderViewModel);
             _service.UpdateItem(correntOrder);
         }
 
         [HttpPost]
-        public void DeleteOrder(Order order)
+        public void DeleteOrder(OrderViewModel orderViewModel)
         {
-            var deletedOrder = Mapper.Map<Order, OrderDTO>(order);
+            var deletedOrder = Mapper.Map<OrderViewModel, OrderDTO>(orderViewModel);
             _service.DeleteItem(deletedOrder);
         }
 
 
         [HttpGet]
-        public IEnumerable<Order> GetOrders()
+        public IEnumerable<OrderViewModel> GetOrders()
         {
             var orders =
-                Mapper.Map<IEnumerable<OrderDTO>, List<Order>>(_service.GetAll());
+                Mapper.Map<IEnumerable<OrderDTO>, List<OrderViewModel>>(_service.GetAll());
             return orders;
         }
     }
