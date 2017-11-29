@@ -7,13 +7,13 @@ namespace MyStoreWebApi.DL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class init6 : IMigrationMetadata
+    public sealed partial class init3 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init6));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init3));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711252148581_init6"; }
+            get { return "201711291233527_init3"; }
         }
         
         string IMigrationMetadata.Source

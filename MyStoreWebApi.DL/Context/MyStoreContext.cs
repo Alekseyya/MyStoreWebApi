@@ -15,7 +15,7 @@ namespace MyStoreWebApi.DL.Context
         public DbSet<Order> Orders { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Product> Products { get; set; }
-       // public DbSet<User> Users { get; set; }
+        public DbSet<Mark> Marks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -27,6 +27,7 @@ namespace MyStoreWebApi.DL.Context
             modelBuilder.Configurations.Add(new ClaimConfiguration());
             modelBuilder.Configurations.Add(new LoginConfiguration());
             modelBuilder.Configurations.Add(new RoleConfiguration());
+            modelBuilder.Configurations.Add(new MarkConfiguration());
         }
 
         public class DatabaseInitializer

@@ -14,11 +14,13 @@ namespace MyStoreWebApi.DL.Entities
         public int Count { get; set; }
         public int? PhotoId { get; set; }
         public int? OrderId { get; set; }
+        public int? MarkId { get; set; }
 
 
         public Order Order { get; set; }
         public Photo Photo { get; set; }
         public Category Category { get; set; }
+        public Mark Mark { get; set; }
     }
     public class ProductConfiguration : EntityTypeConfiguration<Product>
     {

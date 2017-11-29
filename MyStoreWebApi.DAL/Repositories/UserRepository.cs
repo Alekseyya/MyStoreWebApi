@@ -18,7 +18,7 @@ namespace MyStoreWebApi.DAL.Repositories
             _context = context;
             _userManager = new UserManager<User,Guid>(new CustomUserStore(context));
         }
-
+       
         //Register user
         public bool Create(User item)
         {
