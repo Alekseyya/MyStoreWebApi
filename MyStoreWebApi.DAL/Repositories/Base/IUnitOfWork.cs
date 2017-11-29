@@ -7,5 +7,7 @@
         IPhotoRepository PhotoRepository { get; set; }
         IProductRepository ProductRepository { get; set; }
         IUserRepository UserRepository { get; set; }
+        IMarkRepository MarkRepository { get; set; }
+        
     }
 }

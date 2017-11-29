@@ -14,6 +14,7 @@ namespace MyStoreWebApi.DAL.Repositories
             PhotoRepository = new PhotoRepository(_context);
             ProductRepository = new ProductRepository(_context);
             UserRepository = new UserRepository(_context);
+            MarkRepository = new MarkRepository(_context);
 
         }
 
@@ -22,5 +23,6 @@ namespace MyStoreWebApi.DAL.Repositories
         public IPhotoRepository PhotoRepository { get; set; }
         public IProductRepository ProductRepository { get; set; }
         public IUserRepository UserRepository { get; set; }
+        public IMarkRepository MarkRepository { get; set; }
     }
 }

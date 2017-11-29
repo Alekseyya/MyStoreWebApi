@@ -74,6 +74,13 @@ namespace MyStoreWebApi.BL.MapperConfig
             }
 
         }
+        public class MarkProfile : Profile
+        {
+            public MarkProfile()
+            {
+                CreateMap<MarkDTO, Mark>();
+            }
+        }
 
     }
 }

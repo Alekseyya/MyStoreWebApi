@@ -23,6 +23,8 @@ namespace MyStoreWebApi.DI
                 .As<IProductService>();
             builder.RegisterType<UserService>()
                 .As<IUserService>();
+            builder.RegisterType<MarkService>()
+                .As<IMarkService>();
         }
     }
 }

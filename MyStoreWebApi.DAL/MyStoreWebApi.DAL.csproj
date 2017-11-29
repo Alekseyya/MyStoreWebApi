@@ -60,12 +60,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\IBaseRepository.cs" />
     <Compile Include="Repositories\Base\ICategoryRepository.cs" />
+    <Compile Include="Repositories\Base\IMarkRepository.cs" />
     <Compile Include="Repositories\Base\IOrderRepository.cs" />
     <Compile Include="Repositories\Base\IPhotoRepository.cs" />
     <Compile Include="Repositories\Base\IProductRepository.cs" />
     <Compile Include="Repositories\Base\IUnitOfWork.cs" />
     <Compile Include="Repositories\Base\IUserRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\MarkRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\PhotoRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />

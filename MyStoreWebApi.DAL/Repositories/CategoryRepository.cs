@@ -34,7 +34,7 @@ namespace MyStoreWebApi.DAL.Repositories
 
         public IQueryable<Category> GetAll()
         {
-            return _context.Categories.AsQueryable();
+            return _context.Categories.Include("Products").AsQueryable();
         }
 
         public Category GetItemById(int id)

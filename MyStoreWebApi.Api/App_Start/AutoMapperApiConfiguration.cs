@@ -14,14 +14,29 @@ namespace MyStoreWebApi.Api.App_Start
             {
                 cfg.AddProfile(new UserModelProfile());
                 cfg.AddProfile(new UserWebApiProfile());
+                cfg.AddProfile(new MarkWebApiProfile());
+                cfg.AddProfile(new CategoryWebApiProfile());
+                cfg.AddProfile(new ProductWebApiProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.CategoryProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.OrderProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.PhotoProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.ProductProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.UserProfile());
+                cfg.AddProfile(new AutoMapperServiceConfiguration.MarkProfile());
             });
             
         }
+
+        public class MarkWebApiProfile : Profile
+        {
+            public MarkWebApiProfile()
+            {
+                CreateMap<MarkDTO, MarkViewModel>();
+                CreateMap<MarkViewModel, MarkDTO>();
+            }
+
+        }
+
         public class UserModelProfile : Profile
         {
             public UserModelProfile()

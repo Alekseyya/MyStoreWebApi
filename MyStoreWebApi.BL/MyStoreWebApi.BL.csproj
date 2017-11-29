@@ -66,6 +66,7 @@
     <Compile Include="Models\CategoryDTO.cs" />
     <Compile Include="Models\ClaimDTO.cs" />
     <Compile Include="Models\LoginDTO.cs" />
+    <Compile Include="Models\MarkDTO.cs" />
     <Compile Include="Models\OrderDTO.cs" />
     <Compile Include="Models\PhotoDTO.cs" />
     <Compile Include="Models\ProductDTO.cs" />
@@ -75,9 +76,11 @@
     <Compile Include="Services\Base\IBaseService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\Interfaces\ICategoryService.cs" />
+    <Compile Include="Services\Interfaces\IMarkService.cs" />
     <Compile Include="Services\Interfaces\IOrderService.cs" />
     <Compile Include="Services\Interfaces\IProductService.cs" />
     <Compile Include="Services\Interfaces\IUserService.cs" />
+    <Compile Include="Services\MarkService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\UserService.cs" />
