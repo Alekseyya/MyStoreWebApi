@@ -154,6 +154,28 @@ namespace MyStoreWebApi.DAL.Repositories
                 userUpdate.UserName = item.UserName;
                 isModified = true;
             }
+
+            if (userUpdate.FirstName != item.FirstName)
+            {
+                userUpdate.FirstName = item.FirstName;
+                isModified = true;
+            }
+            if (userUpdate.LastName != item.LastName)
+            {
+                userUpdate.LastName = item.LastName;
+                isModified = true;
+            }
+            if (userUpdate.Age != item.Age)
+            {
+                userUpdate.Age = item.Age;
+                isModified = true;
+            }
+            if (userUpdate.Gender != item.Gender)
+            {
+                userUpdate.UserName = item.UserName;
+                isModified = true;
+            }
+
             if (isModified)
             {
                 _userManager.Update(userUpdate);

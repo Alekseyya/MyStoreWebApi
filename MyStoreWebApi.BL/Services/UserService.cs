@@ -31,12 +31,7 @@ namespace MyStoreWebApi.BL.Services
 
         public void DeleteItem(UserDTO item)
         {
-            var findUser = _unitOfWork.UserRepository.GetAll()
-                .FirstOrDefault(us => us.UserName == item.UserName);
-            if (findUser != null)
-            {
-                _unitOfWork.UserRepository.Delete(findUser.Id);
-            }
+            
         }
 
         public void DeleteItemById(int id)
@@ -74,6 +69,23 @@ namespace MyStoreWebApi.BL.Services
         }
 
         void IBaseService<UserDTO>.AddItem(UserDTO item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteUser(UserDTO user)
+        {
+            var findUser = _unitOfWork.UserRepository.GetAll()
+                .FirstOrDefault(us => us.UserName == user.UserName);
+            if (findUser != null)
+            {
+                _unitOfWork.UserRepository.Delete(findUser.Id);
+                return true;
+            }
+            return false;
+        }
+
+        void IBaseService<UserDTO>.DeleteItem(UserDTO item)
         {
             throw new NotImplementedException();
         }

@@ -36,6 +36,19 @@ namespace MyWebAPI.Api.Controllers
         }
 
         [HttpPost]
+        public IHttpActionResult UpdateUser(UserModel user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var userDTO = Mapper.Map<UserModel, UserDTO>(user);
+            _service.UpdateItem(userDTO);
+
+            return Ok();
+        }
+
+        [HttpPost]
         [AllowAnonymous]        
         public async Task<IHttpActionResult> Register(UserRegisterModel userRegisterModel)
         {
@@ -44,8 +57,8 @@ namespace MyWebAPI.Api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = Mapper.Map<UserRegisterModel, UserDTO>(userRegisterModel);
-            var resultAdd = _service.AddItem(user);
+            var userDTO = Mapper.Map<UserRegisterModel, UserDTO>(userRegisterModel);
+            var resultAdd = _service.AddItem(userDTO);
 
             if (!resultAdd)
             {
@@ -54,7 +67,24 @@ namespace MyWebAPI.Api.Controllers
 
             return Ok();
         }
-        
+
+        [HttpPost]
+        public IHttpActionResult DeleteUser(LoginModel user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var deletingUser = Mapper.Map<LoginModel, UserDTO>(user);
+            var isDelete = _service.DeleteUser(deletingUser);
+
+            if (!isDelete)
+            {
+                return GetErrorResult();
+            }
+
+            return Ok();
+        }
 
         private IHttpActionResult GetErrorResult()
         {

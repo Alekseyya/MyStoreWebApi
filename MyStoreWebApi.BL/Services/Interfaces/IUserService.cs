@@ -7,5 +7,6 @@ namespace MyStoreWebApi.BL.Services.Interfaces
     {
         new bool AddItem(UserDTO user);
         UserDTO FindUser(UserDTO user);
+        bool DeleteUser(UserDTO user);
     }
 }

@@ -96,9 +96,9 @@
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Migrations\201711291233527_init3.cs" />
-    <Compile Include="Migrations\201711291233527_init3.Designer.cs">
-      <DependentUpon>201711291233527_init3.cs</DependentUpon>
+    <Compile Include="Migrations\201711301635535_init5.cs" />
+    <Compile Include="Migrations\201711301635535_init5.Designer.cs">
+      <DependentUpon>201711301635535_init5.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,8 +108,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711291233527_init3.resx">
-      <DependentUpon>201711291233527_init3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711301635535_init5.resx">
+      <DependentUpon>201711301635535_init5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

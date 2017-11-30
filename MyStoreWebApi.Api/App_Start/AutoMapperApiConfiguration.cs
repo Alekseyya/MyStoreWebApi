@@ -12,7 +12,6 @@ namespace MyStoreWebApi.Api.App_Start
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.AddProfile(new UserModelProfile());
                 cfg.AddProfile(new UserWebApiProfile());
                 cfg.AddProfile(new MarkWebApiProfile());
                 cfg.AddProfile(new CategoryWebApiProfile());
@@ -33,15 +32,6 @@ namespace MyStoreWebApi.Api.App_Start
             {
                 CreateMap<MarkDTO, MarkViewModel>();
                 CreateMap<MarkViewModel, MarkDTO>();
-            }
-
-        }
-
-        public class UserModelProfile : Profile
-        {
-            public UserModelProfile()
-            {
-                CreateMap<UserRegisterModel, UserDTO>();
             }
 
         }
@@ -68,6 +58,9 @@ namespace MyStoreWebApi.Api.App_Start
             public UserWebApiProfile()
             {
                 CreateMap<UserDTO, UserModel>();
+                CreateMap<UserRegisterModel, UserDTO>();
+                CreateMap<LoginModel, UserDTO>();
+                CreateMap<UserModel, UserDTO>();
             }
 
         }

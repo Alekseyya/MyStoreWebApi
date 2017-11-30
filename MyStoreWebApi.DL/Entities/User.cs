@@ -27,15 +27,20 @@ namespace MyStoreWebApi.DL.Entities
     public class User : IdentityUser<Guid, Login, Role,
             Claim>
     {
-            //public async Task<ClaimsIdentity> GenerateUserIdentityAsync
-            //    (UserManager<ApplicationUser, Guid> manager)
-            //{
-            //    var userIdentity = await manager.CreateIdentityAsync(this,
-            //        DefaultAuthenticationTypes.ApplicationCookie);
-            //    return userIdentity;
-            //}
-        }
-       
+        //public async Task<ClaimsIdentity> GenerateUserIdentityAsync
+        //    (UserManager<ApplicationUser, Guid> manager)
+        //{
+        //    var userIdentity = await manager.CreateIdentityAsync(this,
+        //        DefaultAuthenticationTypes.ApplicationCookie);
+        //    return userIdentity;
+        //}
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int? Age{ get; set; }
+        public string Gender { get; set; }
+
+    }
+
     public class UserConfiguration : EntityTypeConfiguration<User>
     {
         public UserConfiguration()
@@ -43,6 +48,11 @@ namespace MyStoreWebApi.DL.Entities
             Property(x => x.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .IsRequired();
+            Property(x => x.FirstName);
+            Property(x => x.LastName);
+            Property(x => x.Age).IsOptional();
+            Property(x => x.Gender);
+
         }
     }
 }
