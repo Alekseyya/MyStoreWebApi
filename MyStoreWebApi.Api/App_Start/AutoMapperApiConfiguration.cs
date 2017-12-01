@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using MyStoreWebApi.BL.Models;
 using MyStoreWebApi.Api.Models;
 using MyStoreWebApi.BL.MapperConfig;
@@ -41,6 +42,8 @@ namespace MyStoreWebApi.Api.App_Start
             public PictureWebApiProfile()
             {
                 CreateMap<PictureDTO, PictureModel>();
+                CreateMap<PictureDTO, PictureViewModel>()
+                    .ForMember("ImageBase64", o => o.MapFrom(c =>c.Path));
             }
 
         }

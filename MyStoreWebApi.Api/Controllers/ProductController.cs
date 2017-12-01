@@ -10,6 +10,7 @@ using MyStoreWebApi.Api.Models;
 using MyStoreWebApi.BL.Models;
 using MyStoreWebApi.BL.Services;
 using MyStoreWebApi.BL.Services.Interfaces;
+using MyWebAPI.Api.Helpers;
 using MyWebAPI.Api.Models;
 
 namespace MyWebAPI.Api.Controllers
@@ -51,6 +52,14 @@ namespace MyWebAPI.Api.Controllers
         {
             var products =
                 Mapper.Map<IEnumerable<ProductDTO>, List<ProductViewModel>>(_service.GetAll());
+            foreach (var product in products)
+            {
+                foreach (var picture in product.Pictures)
+                {
+                    picture.ImageBase64 =
+                        Convert.ToBase64String(ConverterImage.ConvertImageToBiteArray(picture.ImageBase64));
+                }
+            }
             return products;
         }
         
