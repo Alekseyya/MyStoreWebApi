@@ -35,7 +35,7 @@ namespace MyStoreWebApi.DAL.Repositories
         {
             var aa = _context.Products.ToList();
             return _context.Products.Include("Order").Include("Photo")
-                                    .Include("Category").AsQueryable();
+                                    .Include("Category").Include("Pictures").AsQueryable();
         }
 
         public Product GetItemById(int id)
@@ -43,7 +43,9 @@ namespace MyStoreWebApi.DAL.Repositories
             var product = _context.Products
                         .Include("Order")
                         .Include("Photo")
-                        .Include("Category").FirstOrDefault(x => x.Id == id);
+                        .Include("Category")
+                        .Include("Pictures")
+                        .FirstOrDefault(x => x.Id == id);
             if (product != null)
                 return product;
             else

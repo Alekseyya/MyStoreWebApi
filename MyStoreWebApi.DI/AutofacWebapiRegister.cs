@@ -21,6 +21,8 @@ namespace MyStoreWebApi.DI
                 .As<IOrderService>();
             builder.RegisterType<ProductService>()
                 .As<IProductService>();
+            builder.RegisterType<PictureService>()
+                .As<IPictureService>();
             builder.RegisterType<UserService>()
                 .As<IUserService>();
             builder.RegisterType<MarkService>()

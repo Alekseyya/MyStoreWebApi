@@ -78,10 +78,12 @@
     <Compile Include="Services\Interfaces\ICategoryService.cs" />
     <Compile Include="Services\Interfaces\IMarkService.cs" />
     <Compile Include="Services\Interfaces\IOrderService.cs" />
+    <Compile Include="Services\Interfaces\IPictureService.cs" />
     <Compile Include="Services\Interfaces\IProductService.cs" />
     <Compile Include="Services\Interfaces\IUserService.cs" />
     <Compile Include="Services\MarkService.cs" />
     <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\PictureService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>

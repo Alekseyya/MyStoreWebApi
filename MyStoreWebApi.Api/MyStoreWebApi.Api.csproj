@@ -272,6 +272,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarkController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\PictureController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -280,6 +281,8 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MarkViewModel.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
+    <Compile Include="Models\PictureModel.cs" />
+    <Compile Include="Models\PictureViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\UserRegisterModel.cs" />

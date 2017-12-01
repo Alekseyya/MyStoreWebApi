@@ -16,6 +16,7 @@ namespace MyStoreWebApi.Api.App_Start
                 cfg.AddProfile(new MarkWebApiProfile());
                 cfg.AddProfile(new CategoryWebApiProfile());
                 cfg.AddProfile(new ProductWebApiProfile());
+                cfg.AddProfile(new PictureWebApiProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.CategoryProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.OrderProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.PictureProfile());
@@ -32,6 +33,14 @@ namespace MyStoreWebApi.Api.App_Start
             {
                 CreateMap<MarkDTO, MarkViewModel>();
                 CreateMap<MarkViewModel, MarkDTO>();
+            }
+
+        }
+        public class PictureWebApiProfile : Profile
+        {
+            public PictureWebApiProfile()
+            {
+                CreateMap<PictureDTO, PictureModel>();
             }
 
         }
