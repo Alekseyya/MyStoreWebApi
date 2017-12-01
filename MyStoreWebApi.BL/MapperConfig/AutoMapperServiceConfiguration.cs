@@ -54,6 +54,7 @@ namespace MyStoreWebApi.BL.MapperConfig
             public PictureProfile()
             {
                 CreateMap<PictureDTO, Picture>();
+                CreateMap<Picture, PictureDTO>();
             }
         }
         public class ProductProfile : Profile
@@ -61,6 +62,7 @@ namespace MyStoreWebApi.BL.MapperConfig
             public ProductProfile()
             {
                 CreateMap<ProductDTO, Product>();
+                CreateMap<Product, ProductDTO>();
             }
         }
 

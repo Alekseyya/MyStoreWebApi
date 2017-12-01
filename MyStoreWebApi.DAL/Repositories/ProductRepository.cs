@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using MyStoreWebApi.DAL.Repositories.Base;
@@ -31,17 +32,16 @@ namespace MyStoreWebApi.DAL.Repositories
             }
         }
 
-        public IQueryable<Product> GetAll()
+        public IList<Product> ListGetAll()
         {
-            var aa = _context.Products.ToList();
-            return _context.Products.Include("Order").Include("Photo")
-                                    .Include("Category").Include("Pictures").AsQueryable();
+            return _context.Products.Include("Orders")
+                .Include("Category").Include("Pictures").Include("Mark").ToList();
         }
 
         public Product GetItemById(int id)
         {
             var product = _context.Products
-                        .Include("Order")
+                        .Include("Orders")
                         .Include("Photo")
                         .Include("Category")
                         .Include("Pictures")
@@ -101,6 +101,12 @@ namespace MyStoreWebApi.DAL.Repositories
                 _context.Entry(product).State = EntityState.Modified;
                 _context.SaveChanges();
             }
+        }
+
+        public IQueryable<Product> GetAll()
+        {
+            return _context.Products.Include("Orders")
+                .Include("Category").Include("Pictures").Include("Mark").AsQueryable();
         }
     }
 }

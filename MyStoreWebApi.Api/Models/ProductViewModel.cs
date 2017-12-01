@@ -1,4 +1,6 @@
-﻿namespace MyWebAPI.Api.Models
+﻿using System.Collections.Generic;
+
+namespace MyWebAPI.Api.Models
 {
     public class ProductViewModel
     {
@@ -6,7 +8,13 @@
         public string Descriptions { get; set; }
         public decimal Price { get; set; }
         public int Count { get; set; }
-        public string PictureName { get; set; }
-        public string ImageBase64 { get; set; }
+
+        public ICollection<PictureViewModel> Pictures { get; set; }
+
+        public ProductViewModel()
+        {
+            Pictures = new List<PictureViewModel>();
+        }
+        
     }
 }

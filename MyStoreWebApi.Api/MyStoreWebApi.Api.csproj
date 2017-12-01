@@ -277,6 +277,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ConverterImage.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MarkViewModel.cs" />

@@ -1,4 +1,6 @@
-﻿namespace MyStoreWebApi.BL.Models
+﻿using System.Collections.Generic;
+
+namespace MyStoreWebApi.BL.Models
 {
     public class ProductDTO
     {
@@ -9,5 +11,11 @@
 
         public bool IsDeleted { get; set; }
         public int Count { get; set; }
+
+        public ICollection<PictureDTO> Pictures { get; set; }
+        public ProductDTO()
+        {
+            Pictures = new List<PictureDTO>();
+        }
     }
 }
