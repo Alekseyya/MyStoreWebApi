@@ -18,7 +18,7 @@ namespace MyStoreWebApi.Api.App_Start
                 cfg.AddProfile(new ProductWebApiProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.CategoryProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.OrderProfile());
-                cfg.AddProfile(new AutoMapperServiceConfiguration.PhotoProfile());
+                cfg.AddProfile(new AutoMapperServiceConfiguration.PictureProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.ProductProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.UserProfile());
                 cfg.AddProfile(new AutoMapperServiceConfiguration.MarkProfile());

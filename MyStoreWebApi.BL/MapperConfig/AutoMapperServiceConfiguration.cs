@@ -49,11 +49,11 @@ namespace MyStoreWebApi.BL.MapperConfig
                 CreateMap<OrderDTO, Order>();
             }
         }
-        public class PhotoProfile : Profile
+        public class PictureProfile : Profile
         {
-            public PhotoProfile()
+            public PictureProfile()
             {
-                CreateMap<PhotoDTO, Photo>();
+                CreateMap<PictureDTO, Picture>();
             }
         }
         public class ProductProfile : Profile

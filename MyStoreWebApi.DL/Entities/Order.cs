@@ -41,7 +41,7 @@ namespace MyStoreWebApi.DL.Entities
             Property(x => x.OrderDate)
                 .IsRequired();
 
-            HasMany(x => x.Products);
+            //HasMany(x => x.Products);
                 
 
             HasRequired(x => x.User);//[ForeignKey]

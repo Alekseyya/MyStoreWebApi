@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace MyStoreWebApi.DL.Entities
@@ -12,15 +13,18 @@ namespace MyStoreWebApi.DL.Entities
         public int? CategoryId { get; set; }
         public bool IsDeleted { get; set; }
         public int Count { get; set; }
-        public int? PhotoId { get; set; }
-        public int? OrderId { get; set; }
         public int? MarkId { get; set; }
 
-
-        public Order Order { get; set; }
-        public Photo Photo { get; set; }
+        public ICollection<Order> Orders { get; set; }
         public Category Category { get; set; }
         public Mark Mark { get; set; }
+        public ICollection<Picture> Pictures { get; set; }
+
+        public Product()
+        {
+            Pictures = new List<Picture>();
+            Orders = new List<Order>();
+        }
     }
     public class ProductConfiguration : EntityTypeConfiguration<Product>
     {
@@ -46,10 +50,9 @@ namespace MyStoreWebApi.DL.Entities
             Property(x => x.Count)
                 .IsRequired();
 
+            HasMany(x => x.Pictures);
 
-            HasOptional(x=>x.Photo);
-            HasOptional(x => x.Order);
-
+            
             HasOptional(x => x.Category); //[ForeignKey]
         }
     }

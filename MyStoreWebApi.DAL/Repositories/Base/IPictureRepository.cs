@@ -2,7 +2,7 @@
 
 namespace MyStoreWebApi.DAL.Repositories.Base
 {
-    public interface IPhotoRepository : IBaseRepository<Photo>
+    public interface IPictureRepository : IBaseRepository<Picture>
     {
     }
 }

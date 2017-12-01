@@ -68,7 +68,7 @@
     <Compile Include="Models\LoginDTO.cs" />
     <Compile Include="Models\MarkDTO.cs" />
     <Compile Include="Models\OrderDTO.cs" />
-    <Compile Include="Models\PhotoDTO.cs" />
+    <Compile Include="Models\PictureDTO.cs" />
     <Compile Include="Models\ProductDTO.cs" />
     <Compile Include="Models\RoleDTO.cs" />
     <Compile Include="Models\UserDTO.cs" />

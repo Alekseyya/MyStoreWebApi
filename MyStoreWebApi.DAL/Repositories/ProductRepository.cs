@@ -93,18 +93,7 @@ namespace MyStoreWebApi.DAL.Repositories
                 product.Count = item.Count;
                 isModified = true;
             }
-
-            if (product.PhotoId != item.PhotoId)
-            {
-                product.PhotoId = item.PhotoId;
-                isModified = true;
-            }
-            if (product.OrderId != item.OrderId)
-            {
-                product.OrderId = item.OrderId;
-                isModified = true;
-            }
-
+            
             if (isModified)
             {
                 _context.Entry(product).State = EntityState.Modified;
