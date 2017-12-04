@@ -108,92 +108,88 @@ namespace MyStoreWebApi.DL.Migrations
                     {
                         Name = "Scania 730",
                         UpdateTimestamp = DateTime.Today,
-                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Scania S 730 v8.jpg",
-                        ProductId = 1
+                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Scania S 730 v8.jpg"
+                        
                     },
                     new Picture
                     {
                         Name = "Mazda 6",
                         UpdateTimestamp = DateTime.Today,
                         Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Mazda 6.jpg",
-                        ProductId = 2
+                        
                     },
                     new Picture
                     {
                         Name = "BMW X6",
                         UpdateTimestamp = DateTime.Today,
-                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\BMW X6.jpg",
-                        ProductId = 3
+                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\BMW X6.jpg"
                     },
                     new Picture
                     {
                         Name = "BMW X6 compartment",
                         UpdateTimestamp = DateTime.Today,
                         Path = @"C:\Work\Andersen\MyStoreWebApi\Images\BMW X6 comportment.png",
-                        ProductId = 4
+                        
                     },
                     new Picture
                     {
                         Name = "BMW I8",
                         UpdateTimestamp = DateTime.Today,
-                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\BMW i8.jpg",
-                        ProductId = 5
+                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\BMW i8.jpg"
                     },
                     new Picture
                     {
                         Name = "BMW 7 vi",
                         UpdateTimestamp = DateTime.Today,
-                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\BMW 7 vi.jpg",
-                        ProductId = 6
+                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\BMW 7 vi.jpg"
                     },
                     new Picture
                     {
                         Name = "Acura ZDX",
                         UpdateTimestamp = DateTime.Today,
-                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Acura ZDX.jpg",
-                        ProductId = 7
+                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Acura ZDX.jpg"
                     },
                     new Picture
                     {
                         Name = "Acura ILX",
                         UpdateTimestamp = DateTime.Today,
-                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Acura ILX.png",
-                        ProductId = 8
+                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Acura ILX.png"
+                        
                     },
                     new Picture
                     {
                         Name = "Acura MDX 2",
                         UpdateTimestamp = DateTime.Today,
-                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Acura MDX 2.jpg",
-                        ProductId = 9
+                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Acura MDX 2.jpg"
+                       
                     },
                     new Picture
                     {
                         Name = "Acura NSX 2",
                         UpdateTimestamp = DateTime.Today,
-                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Acura NSX 2.jpg",
-                        ProductId = 10
+                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Acura NSX 2.jpg"
+                        
                     },
                     new Picture
                     {
                         Name = "Opel Agam",
                         UpdateTimestamp = DateTime.Today,
-                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Opel Agam.jpg",
-                        ProductId = 11
+                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Opel Agam.jpg"
+                       
                     },
                     new Picture
                     {
                         Name = "Opel Antara",
                         UpdateTimestamp = DateTime.Today,
-                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Opel Antara.jpg",
-                        ProductId = 12
+                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Opel Antara.jpg"
+                        
                     },
                     new Picture
                     {
                         Name = "Opel Speedster",
                         UpdateTimestamp = DateTime.Today,
-                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Opel Speedster.jpg",
-                        ProductId = 13
+                        Path = @"C:\Work\Andersen\MyStoreWebApi\Images\Opel Speedster.jpg"
+                        
                     }
                 );
 

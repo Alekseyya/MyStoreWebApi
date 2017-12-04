@@ -50,7 +50,7 @@ namespace MyStoreWebApi.DL.Entities
             Property(x => x.Count)
                 .IsRequired();
 
-            HasMany(x => x.Pictures);
+            //HasMany(x => x.Pictures);
 
             
             HasOptional(x => x.Category); //[ForeignKey]

@@ -10,7 +10,8 @@ namespace MyStoreWebApi.DL.Entities
         public string Name { get; set; }
         public string Path { get; set; }
         public DateTime UpdateTimestamp { get; set; }
-        public int? ProductId { get; set; }
+        public int? ProductId{ get; set; }
+
         public Product Product{ get; set; }
 
     }
@@ -32,6 +33,8 @@ namespace MyStoreWebApi.DL.Entities
 
             Property(x => x.UpdateTimestamp)
                 .IsRequired();
+            Property(x => x.ProductId).IsOptional();
+
 
             HasOptional(x => x.Product);
         }

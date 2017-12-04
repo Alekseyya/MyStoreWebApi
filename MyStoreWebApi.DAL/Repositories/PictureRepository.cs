@@ -68,12 +68,9 @@ namespace MyStoreWebApi.DAL.Repositories
             {
                 photo.Path = item.Path;
                 isModified = true;
+                
             }
-            if (photo.ProductId != item.ProductId)
-            {
-                photo.ProductId= item.ProductId;
-                isModified = true;
-            }
+            
 
             if (isModified)
             {
