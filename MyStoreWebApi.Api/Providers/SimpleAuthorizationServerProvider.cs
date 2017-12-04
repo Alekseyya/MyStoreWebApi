@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http.Cors;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
 using MyStoreWebApi.BL.Models;
@@ -30,6 +31,7 @@ namespace MyWebAPI.Api.Providers
         {
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+            
 
             var user = _service.FindUser(new UserDTO() { Password = context.Password, UserName = context.UserName });
             if (user == null)
