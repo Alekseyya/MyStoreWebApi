@@ -8,7 +8,7 @@ using MyWebAPI.Api.Models;
 
 namespace MyWebAPI.Api.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class MarkController : ApiController
     {
         private readonly IMarkService _markService;

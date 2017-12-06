@@ -13,9 +13,10 @@ namespace MyStoreWebApi.Api
     {
         public static void Register(HttpConfiguration config)
         {
-            
-            //var cors = new EnableCorsAttribute("localhost:8082", "*", "*");
-            config.EnableCors();
+
+            //var cors = new EnableCorsAttribute("www.localhost:4200", "*", "*");
+            var cors = new EnableCorsAttribute("http://localhost:4200", "accept,accesstoken,authorization,cache-control,pragma,content-type,origin", "GET,PUT,POST,DELETE,TRACE,HEAD,OPTIONS");
+            config.EnableCors(cors);
 
             // Маршруты веб-API
             config.MapHttpAttributeRoutes();

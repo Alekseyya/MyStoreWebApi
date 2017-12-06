@@ -16,7 +16,7 @@ using MyWebAPI.Api.Models;
 namespace MyWebAPI.Api.Controllers
 {
     //[Authorize]
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class ProductController : ApiController
     {
         private readonly IProductService _service;

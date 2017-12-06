@@ -43,37 +43,13 @@ namespace MyWebAPI.Api
             Container =  AutofacWebApiConfig.Initialize();
 
             AutoMapperApiConfiguration.Configure();
-
-            //HttpConfiguration config = new HttpConfiguration();
-            //WebApiConfig.Register(config);
-            //app.UseWebApi(config);
-
-            ConfigureOAuth(app);
+            
             //app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            ConfigureOAuth(app);
 
-            //app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-
-            //app.UseCookieAuthentication(new CookieAuthenticationOptions
-            //{
-            //    AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-            //    LoginPath = new PathString("/Account/Login"),
-            //    Provider = new CookieAuthenticationProvider
-            //    {
-            //        OnValidateIdentity = SecurityStampValidator
-            //            .OnValidateIdentity<ApplicationUserManager, ApplicationUser, Guid>(
-            //                validateInterval: TimeSpan.FromMinutes(30),
-            //                regenerateIdentityCallback: (manager, user) =>
-            //                    user.GenerateUserIdentityAsync(manager),
-            //                getUserIdCallback: (id) => (id.GetUserId<Guid>()))
-            //    }
-            //});
         }
         public void ConfigureOAuth(IAppBuilder app)
         {
-            //var root = AutofacWebApiConfig.Container.ComponentRegistry.Registrations.FirstOrDefault
-                                            //(o=>o.Activator.LimitType.Name == "UserService");
-            //var temp = root.Services;
-
             //create singleton
             var userService = Container.Resolve<IUserService>();
             

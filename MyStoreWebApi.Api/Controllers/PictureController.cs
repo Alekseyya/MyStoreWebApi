@@ -11,7 +11,7 @@ using MyWebAPI.Api.Helpers;
 
 namespace MyWebAPI.Api.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    //[EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PictureController : ApiController
     {
         private readonly IPictureService _pictureService;

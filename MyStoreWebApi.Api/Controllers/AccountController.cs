@@ -18,8 +18,8 @@ using MyWebAPI.Api.Models;
 
 namespace MyWebAPI.Api.Controllers
 {
-    [Authorize]
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    //[Authorize]
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class AccountController : ApiController
     {
         private readonly IUserService _service;
