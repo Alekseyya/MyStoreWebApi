@@ -49,7 +49,7 @@ namespace MyWebAPI.Api
             //app.UseWebApi(config);
 
             ConfigureOAuth(app);
-            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            //app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
 
             //app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
 
