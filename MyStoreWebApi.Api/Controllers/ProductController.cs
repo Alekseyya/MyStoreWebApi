@@ -62,6 +62,19 @@ namespace MyWebAPI.Api.Controllers
             }
             return products;
         }
+
+        [HttpGet]
+        public HttpResponseMessage GetRes()
+        {
+            var response = Request.CreateResponse<string>(HttpStatusCode.OK, "asda");
+            return response;
+        }
+
+        [HttpPost]
+        public void TestMethod([FromBody] string hello)
+        {
+            
+        }
         
     }
 }

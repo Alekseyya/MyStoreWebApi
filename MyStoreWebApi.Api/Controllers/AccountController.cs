@@ -34,6 +34,7 @@ namespace MyWebAPI.Api.Controllers
             var users = Mapper.Map<IEnumerable<UserDTO>, List<UserModel>>(_service.GetAll());
             return users;
         }
+        
 
         [HttpPost]
         public IHttpActionResult UpdateUser(UserModel user)
