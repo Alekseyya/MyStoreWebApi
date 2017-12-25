@@ -108,5 +108,16 @@ namespace MyStoreWebApi.DAL.Repositories
             return _context.Products.Include("Orders")
                 .Include("Category").Include("Pictures").Include("Mark").AsQueryable();
         }
+
+        public IQueryable<Product> GetAll(int[] arrayId)
+        {
+            dynamic productsList = null;
+            if (arrayId != null)
+            {
+                //productsList = _context.Products.Where(x => arrayId.Any(y => y == x.Id));
+                productsList = _context.Products.Where(x => arrayId.Contains(x.Id));
+            }
+            return productsList;
+        }
     }
 }

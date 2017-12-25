@@ -47,7 +47,33 @@ namespace MyStoreWebApi.BL.Services
 
         public ProductDTO GetItemById(int id)
         {
-            throw new NotImplementedException();
+            var product = Mapper.Map<Product, ProductDTO>(_unitOfWork.ProductRepository.GetItemById(id));
+            return product;
+        }
+
+        public IList<ProductDTO> GetProducts(int[] arrayId)
+        {
+            #region old code
+            //var allProducts =
+            //    Mapper.Map<IQueryable<Product>, IEnumerable<ProductDTO>>(_unitOfWork.ProductRepository.GetAll());
+            //var resultListProducts = new List<ProductDTO>();
+            //foreach (var selectedProduct in allProducts)
+            //{
+            //    foreach (var product in products)
+            //    {
+            //        if (product.Name == selectedProduct.Name)
+            //        {
+            //            resultListProducts.Add(selectedProduct);
+            //        }
+            //    }
+            //}
+
+
+            #endregion
+            var products = _unitOfWork.ProductRepository.GetAll(arrayId);
+            var findedProducts = Mapper.Map<IEnumerable<Product>, IList<ProductDTO>>
+                                        (products);
+            return findedProducts;
         }
 
         public void UpdateItem(ProductDTO item)
